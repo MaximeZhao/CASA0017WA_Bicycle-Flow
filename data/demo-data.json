@@ -1,0 +1,2613 @@
+{
+  "meta": {
+    "date": "2026-10-15",
+    "source": "Demo dataset based on a Santander Cycles operational snapshot",
+    "hours": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  "stations": [
+    {
+      "id": "S01",
+      "name": "King's Cross",
+      "area": "Camden",
+      "x": 612,
+      "y": 262,
+      "capacity": 30,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 23,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 26,
+          "docks": 1,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 27,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 27,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 22,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 21,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 14,
+          "bikes": 21,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 19,
+          "docks": 8,
+          "faults": 3
+        },
+        {
+          "hour": 16,
+          "bikes": 15,
+          "docks": 13,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 5,
+          "docks": 24,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 4,
+          "docks": 25,
+          "faults": 1
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "name": "Paddington",
+      "area": "Westminster",
+      "x": 402,
+      "y": 344,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 17,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 19,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 22,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 18,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 16,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 17,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 18,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 17,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 13,
+          "docks": 12,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 3,
+          "docks": 21,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 23,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "name": "Oxford Circus",
+      "area": "Westminster",
+      "x": 490,
+      "y": 382,
+      "capacity": 28,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 22,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 25,
+          "docks": 0,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 25,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 23,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 18,
+          "docks": 9,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 19,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 18,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 15,
+          "docks": 12,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 3,
+          "docks": 24,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 26,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "name": "Baker Street",
+      "area": "Westminster",
+      "x": 452,
+      "y": 336,
+      "capacity": 22,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 13,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 17,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 18,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 15,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 13,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 15,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 14,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 12,
+          "docks": 9,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 10,
+          "docks": 10,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 2,
+          "docks": 18,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 1,
+          "docks": 19,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "name": "Regent's Park",
+      "area": "Camden",
+      "x": 502,
+      "y": 286,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 13,
+          "docks": 8,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 19,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 2,
+          "docks": 21,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 11,
+          "docks": 12,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 16,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 3,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 19,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 19,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 22,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 22,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "name": "Euston",
+      "area": "Camden",
+      "x": 588,
+      "y": 330,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 19,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 21,
+          "docks": 2,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 24,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 21,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 17,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 16,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 16,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 15,
+          "docks": 9,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 12,
+          "docks": 12,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 4,
+          "docks": 21,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 2,
+          "docks": 23,
+          "faults": 1
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "name": "Camden Market",
+      "area": "Camden",
+      "x": 548,
+      "y": 186,
+      "capacity": 28,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 15,
+          "docks": 11,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 1,
+          "docks": 26,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 27,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 13,
+          "docks": 13,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 22,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 25,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 24,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 24,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 26,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 25,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 25,
+          "docks": 0,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "name": "Soho Square",
+      "area": "Westminster",
+      "x": 528,
+      "y": 436,
+      "capacity": 20,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 15,
+          "docks": 2,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 18,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 16,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 13,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 13,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 13,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 13,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 11,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 3,
+          "docks": 16,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 18,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "name": "Covent Garden",
+      "area": "Westminster",
+      "x": 620,
+      "y": 436,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 17,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 9,
+          "bikes": 22,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 19,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 17,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 17,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 15,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 11,
+          "docks": 11,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 0,
+          "docks": 21,
+          "faults": 3
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 22,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "name": "British Museum",
+      "area": "Camden",
+      "x": 668,
+      "y": 386,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 19,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 21,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 23,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 19,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 16,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 5,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 19,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 18,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 14,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 3,
+          "docks": 21,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 24,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "name": "Trafalgar Square",
+      "area": "Westminster",
+      "x": 580,
+      "y": 470,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 21,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 24,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 22,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 18,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 17,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 17,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 17,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 14,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 4,
+          "docks": 21,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 1,
+          "docks": 24,
+          "faults": 1
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "name": "Westminster",
+      "area": "Westminster",
+      "x": 628,
+      "y": 520,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 16,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 20,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 22,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 18,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 16,
+          "docks": 5,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 17,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 15,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 12,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 1,
+          "docks": 21,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 21,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "name": "St James's Park",
+      "area": "Westminster",
+      "x": 520,
+      "y": 510,
+      "capacity": 20,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 11,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 15,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 3,
+          "docks": 16,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 10,
+          "docks": 9,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 12,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 14,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 15,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 14,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 17,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 18,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "name": "Victoria",
+      "area": "Westminster",
+      "x": 462,
+      "y": 540,
+      "capacity": 30,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 21,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 24,
+          "docks": 3,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 27,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 24,
+          "docks": 5,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 19,
+          "docks": 10,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 14,
+          "bikes": 19,
+          "docks": 9,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 17,
+          "docks": 10,
+          "faults": 3
+        },
+        {
+          "hour": 16,
+          "bikes": 13,
+          "docks": 15,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 5,
+          "docks": 24,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 3,
+          "docks": 26,
+          "faults": 1
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "name": "Kensington",
+      "area": "Kensington",
+      "x": 206,
+      "y": 452,
+      "capacity": 22,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 12,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 18,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 2,
+          "docks": 19,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 11,
+          "docks": 10,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 16,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 17,
+          "docks": 2,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 18,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 18,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 19,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 20,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "name": "Notting Hill",
+      "area": "Kensington",
+      "x": 344,
+      "y": 414,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 14,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 19,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 2,
+          "docks": 20,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 12,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 16,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 17,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 18,
+          "docks": 3,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 18,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 21,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 22,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "name": "Chelsea",
+      "area": "Kensington",
+      "x": 300,
+      "y": 540,
+      "capacity": 22,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 10,
+          "docks": 10,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 1,
+          "docks": 20,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 21,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 10,
+          "docks": 10,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 15,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 17,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 17,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 16,
+          "docks": 5,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 17,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 20,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 20,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "name": "Battersea Park",
+      "area": "Wandsworth",
+      "x": 386,
+      "y": 666,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 15,
+          "docks": 8,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 1,
+          "docks": 23,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 25,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 12,
+          "docks": 13,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 18,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 20,
+          "docks": 3,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 22,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 22,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 25,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 25,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 24,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "name": "Clapham Common",
+      "area": "Lambeth",
+      "x": 474,
+      "y": 672,
+      "capacity": 28,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 17,
+          "docks": 9,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 2,
+          "docks": 23,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 26,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 16,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 21,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 21,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 23,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 22,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 25,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 26,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 26,
+          "docks": 1,
+          "faults": 1
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "name": "Brixton",
+      "area": "Lambeth",
+      "x": 578,
+      "y": 672,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 12,
+          "docks": 10,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 0,
+          "docks": 23,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 23,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 11,
+          "docks": 11,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 18,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 21,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 20,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 19,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 22,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 22,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 21,
+          "docks": 0,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "name": "Southbank Centre",
+      "area": "Lambeth",
+      "x": 620,
+      "y": 640,
+      "capacity": 28,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 22,
+          "docks": 3,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 25,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 26,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 22,
+          "docks": 5,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 19,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 19,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 20,
+          "docks": 5,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 20,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 16,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 5,
+          "docks": 22,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 26,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S22",
+      "name": "London Eye",
+      "area": "Lambeth",
+      "x": 688,
+      "y": 634,
+      "capacity": 22,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 15,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 9,
+          "bikes": 19,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 21,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 16,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 15,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 16,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 15,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 13,
+          "docks": 8,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 10,
+          "docks": 10,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 1,
+          "docks": 18,
+          "faults": 3
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 20,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S23",
+      "name": "Borough Market",
+      "area": "Southwark",
+      "x": 738,
+      "y": 660,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 13,
+          "docks": 11,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 0,
+          "docks": 24,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 25,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 10,
+          "docks": 15,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 17,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 19,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 20,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 20,
+          "docks": 5,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 22,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 24,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S24",
+      "name": "Tower Bridge",
+      "area": "Southwark",
+      "x": 748,
+      "y": 520,
+      "capacity": 24,
+      "locked": true,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 9,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 11,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 12,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 13,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 14,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 15,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 16,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 17,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "name": "Shoreditch",
+      "area": "Hackney",
+      "x": 800,
+      "y": 396,
+      "capacity": 26,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 13,
+          "docks": 11,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 1,
+          "docks": 24,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 1,
+          "docks": 24,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 13,
+          "docks": 11,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 19,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 22,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 22,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 20,
+          "docks": 5,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 22,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 17,
+          "bikes": 24,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S26",
+      "name": "Bank",
+      "area": "City of London",
+      "x": 704,
+      "y": 462,
+      "capacity": 28,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 21,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 25,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 26,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 22,
+          "docks": 5,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 18,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 19,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 21,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 19,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 15,
+          "docks": 12,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 1,
+          "docks": 26,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 26,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "name": "Liverpool Street",
+      "area": "City of London",
+      "x": 748,
+      "y": 414,
+      "capacity": 26,
+      "locked": true,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 9,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 11,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 12,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 13,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 14,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 15,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 16,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 17,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        }
+      ]
+    },
+    {
+      "id": "S28",
+      "name": "Canary Wharf",
+      "area": "Tower Hamlets",
+      "x": 946,
+      "y": 634,
+      "capacity": 30,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 21,
+          "docks": 7,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 25,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 27,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 22,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 20,
+          "docks": 8,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 21,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 22,
+          "docks": 6,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 20,
+          "docks": 9,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 16,
+          "docks": 13,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 2,
+          "docks": 26,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 27,
+          "faults": 3
+        }
+      ]
+    },
+    {
+      "id": "S29",
+      "name": "Greenwich",
+      "area": "Greenwich",
+      "x": 1040,
+      "y": 642,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 14,
+          "docks": 7,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 19,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 2,
+          "docks": 20,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 12,
+          "docks": 11,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 17,
+          "docks": 6,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 18,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 18,
+          "docks": 3,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 19,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 22,
+          "docks": 1,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 23,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 22,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S30",
+      "name": "Victoria Park",
+      "area": "Tower Hamlets",
+      "x": 892,
+      "y": 342,
+      "capacity": 22,
+      "locked": true,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 9,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 11,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 12,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 13,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 14,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 15,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 16,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 17,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        },
+        {
+          "hour": 18,
+          "bikes": 0,
+          "docks": 0,
+          "faults": 0
+        }
+      ]
+    },
+    {
+      "id": "S31",
+      "name": "Hackney",
+      "area": "Hackney",
+      "x": 856,
+      "y": 286,
+      "capacity": 20,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 11,
+          "docks": 6,
+          "faults": 3
+        },
+        {
+          "hour": 9,
+          "bikes": 1,
+          "docks": 17,
+          "faults": 2
+        },
+        {
+          "hour": 10,
+          "bikes": 0,
+          "docks": 19,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 10,
+          "docks": 9,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 14,
+          "docks": 4,
+          "faults": 2
+        },
+        {
+          "hour": 13,
+          "bikes": 16,
+          "docks": 1,
+          "faults": 3
+        },
+        {
+          "hour": 14,
+          "bikes": 17,
+          "docks": 1,
+          "faults": 2
+        },
+        {
+          "hour": 15,
+          "bikes": 17,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 18,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 18,
+          "docks": 0,
+          "faults": 2
+        }
+      ]
+    },
+    {
+      "id": "S32",
+      "name": "Hampstead",
+      "area": "Camden",
+      "x": 452,
+      "y": 148,
+      "capacity": 20,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 13,
+          "docks": 5,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 14,
+          "faults": 3
+        },
+        {
+          "hour": 10,
+          "bikes": 2,
+          "docks": 16,
+          "faults": 2
+        },
+        {
+          "hour": 11,
+          "bikes": 12,
+          "docks": 7,
+          "faults": 1
+        },
+        {
+          "hour": 12,
+          "bikes": 15,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 13,
+          "bikes": 15,
+          "docks": 3,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 15,
+          "docks": 2,
+          "faults": 3
+        },
+        {
+          "hour": 15,
+          "bikes": 16,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 16,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 1
+        },
+        {
+          "hour": 18,
+          "bikes": 19,
+          "docks": 0,
+          "faults": 1
+        }
+      ]
+    },
+    {
+      "id": "S33",
+      "name": "Islington",
+      "area": "Islington",
+      "x": 672,
+      "y": 318,
+      "capacity": 24,
+      "locked": false,
+      "history": [
+        {
+          "hour": 8,
+          "bikes": 13,
+          "docks": 9,
+          "faults": 2
+        },
+        {
+          "hour": 9,
+          "bikes": 3,
+          "docks": 20,
+          "faults": 1
+        },
+        {
+          "hour": 10,
+          "bikes": 2,
+          "docks": 21,
+          "faults": 1
+        },
+        {
+          "hour": 11,
+          "bikes": 12,
+          "docks": 10,
+          "faults": 2
+        },
+        {
+          "hour": 12,
+          "bikes": 17,
+          "docks": 4,
+          "faults": 3
+        },
+        {
+          "hour": 13,
+          "bikes": 20,
+          "docks": 2,
+          "faults": 2
+        },
+        {
+          "hour": 14,
+          "bikes": 20,
+          "docks": 3,
+          "faults": 1
+        },
+        {
+          "hour": 15,
+          "bikes": 19,
+          "docks": 4,
+          "faults": 1
+        },
+        {
+          "hour": 16,
+          "bikes": 21,
+          "docks": 2,
+          "faults": 1
+        },
+        {
+          "hour": 17,
+          "bikes": 22,
+          "docks": 0,
+          "faults": 2
+        },
+        {
+          "hour": 18,
+          "bikes": 21,
+          "docks": 0,
+          "faults": 3
+        }
+      ]
+    }
+  ],
+  "collisions": [
+    {
+      "x": 350,
+      "y": 250,
+      "title": "Hampstead Road and Finchley Road",
+      "date": "2026-03-12",
+      "note": "Two cycle–motor vehicle side-swipe collisions were recorded here in the past 12 months. Consider the eastern side street as an alternative."
+    },
+    {
+      "x": 740,
+      "y": 300,
+      "title": "Angel and City Road Junction",
+      "date": "2026-01-28",
+      "note": "This junction has no dedicated cycle signal. Two right-turn conflicts were recorded, with heavy traffic at peak times."
+    },
+    {
+      "x": 330,
+      "y": 300,
+      "title": "Notting Hill Gate Junction",
+      "date": "2025-11-09",
+      "note": "Restricted sightlines contributed to three recorded low-speed collisions."
+    },
+    {
+      "x": 240,
+      "y": 510,
+      "title": "King's Road and Chelsea Road Bend",
+      "date": "2025-09-21",
+      "note": "Sightlines are restricted on the bend and wet-weather risk is higher. Two skidding incidents were recorded."
+    },
+    {
+      "x": 860,
+      "y": 500,
+      "title": "Rotherhithe Cycleway (south of Tower Bridge Road)",
+      "date": "2025-07-14",
+      "note": "The cycleway overlaps a freight route. One collision was recorded."
+    },
+    {
+      "x": 520,
+      "y": 640,
+      "title": "Westminster Bridge South Approach",
+      "date": "2025-06-02",
+      "note": "The approach crosses a bus lane with restricted visibility. One collision was recorded."
+    },
+    {
+      "x": 990,
+      "y": 600,
+      "title": "Greenwich Peninsula Cycleway",
+      "date": "2025-02-17",
+      "note": "Roadworks narrow this section of the cycleway. One collision was recorded."
+    }
+  ]
+}
