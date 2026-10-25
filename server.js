@@ -1,90 +1,132 @@
-'use strict';
 
-const http = require('node:http');
-const fs = require('node:fs/promises');
-const path = require('node:path');
+const express = require("express");
+const rateLimit = require("express-rate-limit");
+const path = require("node:path");
+const db = require("./db");
 
-const HOST = '127.0.0.1';
-const PORT = Number(process.env.PORT) || 3000;
-const PROJECT_ROOT = __dirname;
+const app = express();
+const PORT = 3000;
 
-const MIME_TYPES = {
-  '.css': 'text/css; charset=utf-8',
-  '.html': 'text/html; charset=utf-8',
-  '.js': 'text/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.svg': 'image/svg+xml'
-};
 
-function send(response, statusCode, contentType, body) {
-  response.writeHead(statusCode, {
-    'Access-Control-Allow-Origin': '*',
-    'Cache-Control': 'no-store',
-    'Content-Type': contentType
-  });
-  response.end(body);
-}
+app.listen(PORT, "127.0.0.1", () => {
+  console.log(`Server: http://localhost:${PORT}`);
+});
 
-async function readDashboardData() {
-  const filePath = path.join(PROJECT_ROOT, 'data', 'demo-data.json');
-  return JSON.parse(await fs.readFile(filePath, 'utf8'));
-}
+app.use(express.json({ limit: "10kb" }));
+app.use(express.static(path.join(__dirname, "public")));
 
-async function serveStaticFile(urlPath, response) {
-  const relativePath = urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, '');
-  const filePath = path.resolve(PROJECT_ROOT, relativePath);
+const reportLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: "draft-8",
+  legacyHeaders: false
+});
 
-  if (!filePath.startsWith(PROJECT_ROOT + path.sep)) {
-    send(response, 403, 'text/plain; charset=utf-8', 'Forbidden');
-    return;
-  }
 
+app.get("/api/stations", async (req, res) => {
   try {
-    const body = await fs.readFile(filePath);
-    const contentType = MIME_TYPES[path.extname(filePath)] || 'application/octet-stream';
-    send(response, 200, contentType, body);
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      send(response, 404, 'text/plain; charset=utf-8', 'Not found');
-      return;
-    }
-    throw error;
-  }
-}
+    const [rows] = await db.execute(`
+      SELECT station_id, station_name
+      FROM bike_stations
+      ORDER BY station_name
+    `);
 
-const server = http.createServer(async function(request, response) {
-  try {
-    const url = new URL(request.url, `http://${request.headers.host || HOST}`);
-
-    if (request.method === 'OPTIONS') {
-      response.writeHead(204, {
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'GET, OPTIONS',
-        'Access-Control-Allow-Origin': '*'
-      });
-      response.end();
-      return;
-    }
-
-    if (request.method !== 'GET') {
-      send(response, 405, 'application/json; charset=utf-8', JSON.stringify({ error: 'Method not allowed' }));
-      return;
-    }
-
-    if (url.pathname === '/api/dashboard') {
-      const dashboardData = await readDashboardData();
-      send(response, 200, 'application/json; charset=utf-8', JSON.stringify(dashboardData));
-      return;
-    }
-
-    await serveStaticFile(decodeURIComponent(url.pathname), response);
+    res.json(rows);
   } catch (error) {
     console.error(error);
-    send(response, 500, 'application/json; charset=utf-8', JSON.stringify({ error: 'Server error' }));
+    res.status(500).json({ error: "Database error" });
   }
 });
 
-server.listen(PORT, HOST, function() {
-  console.log(`London Bike Pulse is running at http://localhost:${PORT}`);
-  console.log(`Dashboard API: http://localhost:${PORT}/api/dashboard`);
+app.post("/api/fault-reports", reportLimiter, async (req, res) => {
+  const {
+    station_id,
+    bike_number,
+    fault_target,
+    fault_type,
+    description
+  } = req.body || {};
+
+  const clean = value =>
+    typeof value === "string" ? value.trim() : "";
+
+  const stationId = clean(station_id);
+  const bikeNumber = clean(bike_number);
+  const target = clean(fault_target);
+  const type = clean(fault_type);
+  const details = clean(description);
+
+  const validTargets = ["bike", "dock", "station"];
+  const validTypes = [
+    "brake", "tyre", "battery",
+    "lock", "dock", "other"
+  ];
+
+  if (
+    !stationId || stationId.length > 50 ||
+    bikeNumber.length > 50 ||
+    !validTargets.includes(target) ||
+    !validTypes.includes(type) ||
+    details.length > 2000
+  ) {
+    return res.status(400).json({
+      error: "Invalid report fields"
+    });
+  }
+
+  try {
+
+    const [stations] = await db.execute(
+      "SELECT station_id FROM bike_stations WHERE station_id = ?",
+      [stationId]
+    );
+
+    if (stations.length === 0) {
+      return res.status(400).json({
+        error: "Station does not exist"
+      });
+    }
+
+    const [result] = await db.execute(`
+      INSERT INTO fault_reports
+      (
+        station_id, bike_number, fault_target,
+        fault_type, description, report_status
+      )
+      VALUES (?, ?, ?, ?, ?, 'pending')
+    `, [
+      stationId,
+      bikeNumber || null,
+      target,
+      type,
+      details || null
+    ]);
+
+    res.status(201).json({
+      message: "Fault report submitted",
+      report_id: result.insertId
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Database error" });
+  }
+});
+
+app.get("/api/fault-reports", async (req, res) => {
+  try {
+    const [rows] = await db.execute(`
+      SELECT report_id, station_id, bike_number,
+             fault_target, fault_type, description,
+             report_status, reported_at, resolved_at
+      FROM fault_reports
+      ORDER BY reported_at DESC
+      LIMIT 100
+    `);
+
+    res.json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Database error" });
+  }
 });
