@@ -1,11 +1,19 @@
 'use strict';
 
+      var siteState = BikeSite.read();
+      var activeDate = siteState.date || null;
+      var firstDatasetApplied = false;
       var NS = 'http://www.w3.org/2000/svg';
       var HOURS = [];
       var DATE = '';
       var STATIONS = [];
       var COLLISIONS = [];
-      var SERIES = [];
+      var map = null;
+      var stationLayer = null;
+      var collisionLayer = null;
+      var DATA_META = {};
+      var hasFittedMap = false;
+      var isRefreshing = false;
 
       var COLORS = {
         green: '#16a34a',
@@ -14,10 +22,10 @@
         locked: '#94a3b8'
       };
       var OPACITY = {
-        green: 0.22,
-        amber: 0.24,
-        red: 0.22,
-        locked: 0.30
+        green: 0.68,
+        amber: 0.72,
+        red: 0.72,
+        locked: 0.65
       };
       var SLOT_POS = {
         0: [],
@@ -67,16 +75,16 @@
 
       /* Data series are loaded by data-service.js. */
       function sample(i, t) {
-        var s = SERIES[i];
-        var idx = Math.min(HOURS.length - 2, Math.floor(t));
-        var f = clamp(t - idx, 0, 1);
-        var a = s.hours[idx],
-          b = s.hours[idx + 1];
-        return {
-          bikes: a.bikes + (b.bikes - a.bikes) * f,
-          docks: a.docks + (b.docks - a.docks) * f,
-          faults: a.faults + (b.faults - a.faults) * f
-        };
+        var selected = HOURS[Math.round(clamp(t, 0, Math.max(0, HOURS.length - 1)))];
+        var st = STATIONS[i];
+        var item = selected ? BikeContract.snapshotAt(st.history, selected) : null;
+        var reference = selected;
+        if (selected && DATA_META.mode !== 'demo' && Math.round(t) === HOURS.length - 1 && DATA_META.date === new Date().toISOString().slice(0, 10)) reference = new Date().toISOString();
+        var status = BikeContract.status(item, state.mode, reference, DATA_META.staleAfterSeconds);
+        st.locked = status === 'closed';
+        st.unknown = status === 'unknown';
+        st.cap = item && item.capacity !== null ? item.capacity : null;
+        return item || { bikes: null, docks: null, faults: null, capacity: null, recordedAt: null, isOperational: null };
       }
 
       function levelKey(v) {
@@ -90,12 +98,12 @@
       }
 
       function fmtClock(t) {
-        var total = Math.round((HOURS[0] * 60 + t * 60) / 5) * 5;
-        return pad2(Math.floor(total / 60)) + ':' + pad2(total % 60);
+        var timestamp = HOURS[Math.round(clamp(t, 0, Math.max(0, HOURS.length - 1)))];
+        return timestamp ? timestamp.slice(11, 16) : '—';
       }
 
       var state = {
-        mode: 'borrow',
+        mode: siteState.mode || 'borrow',
         t: 1.5,
         hoverId: null,
         pinnedId: null,
@@ -103,35 +111,27 @@
         timer: null
       };
 
-      /* ---------- Base-map blocks ---------- */
-      function buildBlocks() {
-        var g = document.getElementById('blocks');
-        g.innerHTML = '';
-        var s = 20261015;
+      /* ---------- Geographic map, original visual shell ---------- */
+      function initMap() {
+        if (!window.L) throw new Error('Leaflet is unavailable. Run npm install.');
+        map = L.map('map', { zoomControl: true }).setView(APP_CONFIG.map.center, APP_CONFIG.map.zoom);
+        L.tileLayer(APP_CONFIG.map.tileUrl, { attribution: APP_CONFIG.map.attribution, maxZoom: APP_CONFIG.map.maxZoom })
+          .on('tileerror', function() { document.querySelector('.map-hint').textContent = 'Map tiles unavailable · check your connection. Station samples remain available.'; }).addTo(map);
+        stationLayer = L.layerGroup().addTo(map);
+        collisionLayer = L.layerGroup().addTo(map);
+        map.on('move zoom', function() {
+          if (state.pinnedId !== null) paintStationTip(state.pinnedId);
+          else if (state.hoverId !== null) paintStationTip(state.hoverId);
+        });
+      }
 
-        function rnd() {
-          s = (s * 1664525 + 1013904223) % 4294967296;
-          return s / 4294967296;
-        }
-        var frag = document.createDocumentFragment();
-        for (var gy = 0; gy < 14; gy++) {
-          for (var gx = 0; gx < 22; gx++) {
-            if (rnd() < 0.13) continue;
-            var x = gx * 66 + 8 + (rnd() - 0.5) * 6;
-            var y = gy * 50 + 7 + (rnd() - 0.5) * 6;
-            var w = 46 + rnd() * 12;
-            var h = 31 + rnd() * 11;
-            frag.appendChild(svgEl('rect', {
-              x: x.toFixed(1),
-              y: y.toFixed(1),
-              width: w.toFixed(1),
-              height: h.toFixed(1),
-              rx: 3,
-              fill: '#f7f8fa'
-            }));
-          }
-        }
-        g.appendChild(frag);
+      function attachMapGlyph(group, lat, lon, layer, title) {
+        group.removeAttribute('transform');
+        var svg = svgEl('svg', { width: 90, height: 90, viewBox: '-45 -45 90 90', 'aria-hidden': 'true' });
+        svg.appendChild(group);
+        var marker = L.marker([lat, lon], { icon: L.divIcon({ html: svg, className: 'bike-map-marker', iconSize: [90, 90], iconAnchor: [45, 45] }), title: title, alt: title });
+        marker.addTo(layer);
+        return marker;
       }
 
       /* ---------- Map icons ---------- */
@@ -212,6 +212,7 @@
       function buildStations() {
         var layer = document.getElementById('stations');
         layer.innerHTML = '';
+        stationLayer.clearLayers();
         nodes.length = 0;
         var frag = document.createDocumentFragment();
         STATIONS.forEach(function(st, i) {
@@ -229,8 +230,8 @@
           disc.style.r = r + 'px';
           disc.style.fill = COLORS.green;
           disc.style.fillOpacity = String(OPACITY.green);
-          disc.style.stroke = 'rgba(255,255,255,.75)';
-          disc.style.strokeWidth = '1.5';
+          disc.style.stroke = '#ffffff';
+          disc.style.strokeWidth = '2';
           g.appendChild(disc);
 
           var slots = [];
@@ -303,10 +304,7 @@
           g.addEventListener('mouseleave', function() {
             onLeave(i);
           });
-          g.addEventListener('click', function(ev) {
-            ev.stopPropagation();
-            onStationClick(i);
-          });
+
 
           frag.appendChild(g);
           nodes.push({
@@ -320,11 +318,20 @@
           });
         });
         layer.appendChild(frag);
+        nodes.forEach(function(n, i) {
+          var st = STATIONS[i];
+          n.marker = attachMapGlyph(n.g, st.lat, st.lon, stationLayer, st.name);
+          n.marker.on('click', function(e) {
+            if (e.originalEvent) L.DomEvent.stopPropagation(e.originalEvent);
+            onStationClick(i);
+          });
+        });
       }
 
       function buildCollisions() {
         var layer = document.getElementById('collisions');
         layer.innerHTML = '';
+        collisionLayer.clearLayers();
         var frag = document.createDocumentFragment();
         COLLISIONS.forEach(function(c, i) {
           var g = svgEl('g', {
@@ -378,6 +385,10 @@
           frag.appendChild(g);
         });
         layer.appendChild(frag);
+        Array.from(layer.children).forEach(function(group, i) {
+          var c = COLLISIONS[i];
+          attachMapGlyph(group, c.lat, c.lon, collisionLayer, c.title).on('click', function() { paintCollisionTip(c); });
+        });
       }
 
       /* ---------- Tooltip ---------- */
@@ -388,40 +399,31 @@
 
       function tipKeyFor(i) {
         var s = sample(i, state.t);
-        return state.mode + '|' + Math.round(s.bikes) + '|' + Math.round(s.docks) + '|' + Math.round(s.faults) + '|' + fmtClock(state.t);
+        return state.mode + '|' + s.bikes + '|' + s.docks + '|' + s.faults + '|' + fmtClock(state.t) + '|' + STATIONS[i].locked + '|' + STATIONS[i].unknown;
       }
 
       function paintStationTip(i) {
         var st = STATIONS[i];
+        if (!st || !map) return;
         var s = sample(i, state.t);
-        var bikes = st.locked ? 0 : Math.round(s.bikes);
-        var docks = st.locked ? 0 : Math.round(s.docks);
-        var faults = st.locked ? 0 : Math.round(s.faults);
-        var v = state.mode === 'borrow' ? bikes : docks;
-        var key = st.locked ? 'locked' : levelKey(v);
-        var status;
-        if (st.locked) {
-          status = '<span class="tip-badge b-locked">Locked for maintenance</span>';
-        } else {
-          status = '<span class="tip-badge b-' + key + '">Operational</span>';
-        }
-        var levelLine = st.locked ? 'Locked · hire and returns unavailable' : ('Operational · ' + levelText(v, state.mode));
+        var value = state.mode === 'borrow' ? s.bikes : s.docks;
+        var key = st.locked || st.unknown ? 'locked' : levelKey(value);
+        var status = st.locked ? 'Closed' : st.unknown ? 'Unknown / stale' : 'Operational';
+        var availability = st.locked ? 'Hire and returns unavailable' : st.unknown ? 'No fresh, verified status at this time' : levelText(value, state.mode);
+        function number(value) { return value === null ? '—' : value; }
         tip.innerHTML =
-          '<div class="tip-top">' +
-          '<span class="dot" style="background:' + COLORS[st.locked ? 'locked' : key] + '"></span>' +
-          '<div class="tip-name"><h4>' + esc(st.name) + '</h4>' +
-          '<p>' + esc(st.en) + ' · ' + esc(st.area) + ' · ' + st.id + '</p></div>' + status +
-          '</div>' +
-          '<div class="tip-grid">' +
-          '<div><span>Available bikes</span><strong>' + bikes + '<i>bikes</i></strong></div>' +
-          '<div><span>Available docks</span><strong>' + docks + '<i>docks</i></strong></div>' +
-          '<div><span>Reported faults</span><strong>' + faults + '<i>bikes</i></strong></div>' +
-          '<div><span>Station capacity</span><strong>' + st.cap + '<i>spaces</i></strong></div>' +
-          '</div>' +
-          '<div class="tip-row"><span>Station status</span><b>' + levelLine + '</b></div>' +
-          '<div class="tip-foot"><span>Updated ' + DATE + ' ' + fmtClock(state.t) + '</span>' +
-          '<a href="insights.html">View station insights →</a></div>';
-        placeTip(st.x, st.y);
+          '<div class="tip-top"><span class="dot" style="background:' + COLORS[key] + '"></span>' +
+          '<div class="tip-name"><h4>' + esc(st.name) + '</h4><p>' + esc(st.id) + (st.area ? ' · ' + esc(st.area) : '') + '</p></div>' +
+          '<span class="tip-badge b-' + key + '">' + status + '</span></div>' +
+          '<div class="tip-grid"><div><span>Available bikes</span><strong>' + number(s.bikes) + '<i>bikes</i></strong></div>' +
+          '<div><span>Available docks</span><strong>' + number(s.docks) + '<i>docks</i></strong></div>' +
+          '<div><span>Reported faults</span><strong>' + number(s.faults) + '<i>bikes</i></strong></div>' +
+          '<div><span>Station capacity</span><strong>' + number(s.capacity) + '<i>spaces</i></strong></div></div>' +
+          '<div class="tip-row"><span>Station status</span><b>' + availability + '</b></div>' +
+          '<div class="tip-foot"><span>' + (s.recordedAt ? esc(s.recordedAt.slice(11, 16)) + ' UTC · ' + (DATA_META.mode === 'demo' ? 'Synthetic sample' : 'Collected sample') : 'No observation') + '</span>' +
+          '<a href="' + BikeSite.url('insights', { station: st.id, date: DATA_META.date, time: HOURS[Math.round(state.t)], mode: state.mode }) + '">View station insights →</a></div>';
+        var point = map.latLngToContainerPoint([st.lat, st.lon]);
+        placeTip(point.x, point.y);
         tip.classList.add('is-on');
       }
 
@@ -430,13 +432,14 @@
           '<div class="tip-top">' +
           '<span class="dot" style="background:#dc2626"></span>' +
           '<div class="tip-name"><h4>' + esc(c.title) + '</h4>' +
-          '<p>Historic cycle collision · ' + c.date + '</p></div>' +
+          '<p>' + (DATA_META.mode === 'demo' ? 'Synthetic collision example' : 'Historic cycle collision') + ' · ' + esc(c.date) + '</p></div>' +
           '<span class="tip-badge b-red">Caution</span>' +
           '</div>' +
-          '<div class="tip-note">' + c.note + '</div>' +
-          '<div class="tip-foot"><span>Source: police collision records · historic archive</span>' +
+          '<div class="tip-note">' + esc(c.note) + '</div>' +
+          '<div class="tip-foot"><span>Source: ' + esc(c.source) + '</span>' +
           '<a href="insights.html">Station insights →</a></div>';
-        placeTip(c.x, c.y);
+        var point = map.latLngToContainerPoint([c.lat, c.lon]);
+        placeTip(point.x, point.y);
         tip.classList.add('is-on');
       }
 
@@ -539,7 +542,7 @@
           var color, op, icons = 0,
             key;
 
-          if (st.locked) {
+          if (st.locked || st.unknown) {
             key = 'locked';
             color = COLORS.locked;
             op = OPACITY.locked;
@@ -556,10 +559,10 @@
           var hovered = (state.hoverId === i) || (state.pinnedId === i);
           n.disc.classList.toggle('is-critical', key === 'red' && !st.locked);
           n.disc.style.fill = color;
-          n.disc.style.fillOpacity = String(hovered ? 0.92 : op);
+          n.disc.style.fillOpacity = String(hovered ? 0.94 : op);
           n.disc.style.r = (hovered ? n.r * 1.15 : n.r) + 'px';
-          n.disc.style.stroke = hovered ? '#ffffff' : 'rgba(255,255,255,.75)';
-          n.disc.style.strokeWidth = hovered ? '3' : '1.5';
+          n.disc.style.stroke = '#ffffff';
+          n.disc.style.strokeWidth = hovered ? '3' : '2';
 
           var pos = SLOT_POS[icons] || [];
           for (var k = 0; k < 4; k++) {
@@ -570,7 +573,7 @@
             slot.style.transform = 'translate(' + p[0] + 'px,' + p[1] + 'px) scale(' + (on ? 1 : 0.3) + ')';
           }
 
-          var faults = st.locked ? 0 : Math.round(s.faults);
+          var faults = st.locked || st.unknown || s.faults === null ? 0 : s.faults;
           n.fault.style.opacity = faults > 0 ? '1' : '0';
           if (n.faultNum.textContent !== String(faults)) n.faultNum.textContent = String(faults);
           n.lock.style.opacity = st.locked ? '1' : '0';
@@ -583,6 +586,8 @@
         document.getElementById('roGreen').textContent = 'Green ' + counts.green;
         document.getElementById('roAmber').textContent = 'Amber ' + counts.amber;
         document.getElementById('roRed').textContent = 'Red ' + counts.red;
+
+        BikeSite.update({ station: state.pinnedId !== null && STATIONS[state.pinnedId] ? STATIONS[state.pinnedId].id : null, date: DATA_META.date || null, time: HOURS[Math.round(state.t)] || null, mode: state.mode });
 
         var clock = fmtClock(t);
         document.getElementById('clock').textContent = clock;
@@ -612,19 +617,25 @@
       function buildTicks() {
         var wrap = document.getElementById('tlTicks');
         wrap.innerHTML = '';
-        HOURS.forEach(function(h) {
+        var labelStep = Math.max(1, Math.ceil((HOURS.length - 1) / 10));
+        HOURS.forEach(function(h, i) {
+          if (i % labelStep !== 0 && i !== HOURS.length - 1) return;
           var s = document.createElement('span');
-          s.textContent = pad2(h) + ':00';
+          s.textContent = h.slice(11, 16);
           wrap.appendChild(s);
         });
       }
 
       function setTime(t) {
-        state.t = clamp(t, 0, HOURS.length - 1);
-        var pct = (state.t / (HOURS.length - 1)) * 100;
+        state.t = Math.round(clamp(t, 0, Math.max(0, HOURS.length - 1)));
+        var pct = HOURS.length > 1 ? (state.t / (HOURS.length - 1)) * 100 : 0;
         tlFill.style.width = pct + '%';
         tlKnob.style.left = pct + '%';
-        track.setAttribute('aria-valuenow', (HOURS[0] + state.t).toFixed(2));
+        track.setAttribute('aria-valuemin', '0');
+        track.setAttribute('aria-valuemax', String(Math.max(0, HOURS.length - 1)));
+        track.setAttribute('aria-valuenow', String(state.t));
+        track.setAttribute('aria-valuetext', fmtClock(state.t) + ' UTC');
+        track.setAttribute('aria-disabled', HOURS.length < 2 ? 'true' : 'false');
         render();
       }
 
@@ -635,6 +646,7 @@
         return clamp((clientX - r.left) / r.width, 0, 1);
       }
       track.addEventListener('pointerdown', function(e) {
+        if (HOURS.length < 2) return;
         dragging = true;
         stopPlay();
         cancelTipHide();
@@ -666,25 +678,25 @@
       track.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
           stopPlay();
-          setTime(state.t + 0.25);
+          setTime(state.t + 1);
           e.preventDefault();
         }
         if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
           stopPlay();
-          setTime(state.t - 0.25);
+          setTime(state.t - 1);
           e.preventDefault();
         }
       });
 
       function startPlay() {
-        if (state.playing) return;
+        if (state.playing || HOURS.length < 2) return;
         state.playing = true;
         playBtn.textContent = 'Pause';
         state.timer = setInterval(function() {
-          var next = state.t + 0.085;
+          var next = state.t + 1;
           if (next > HOURS.length - 1) next = 0;
           setTime(next);
-        }, 60);
+        }, 650);
       }
 
       function stopPlay() {
@@ -743,87 +755,76 @@
       function fitStage() {
         var wrap = document.getElementById('stageWrap');
         var stage = document.getElementById('stage');
-        var s = Math.min(wrap.clientWidth / 1440, wrap.clientHeight / 900, 1);
-        stage.style.transform = 'scale(' + s + ')';
+        var scale = Math.min(wrap.clientWidth / 1440, wrap.clientHeight / 900, 1);
+        stage.style.transform = 'scale(' + scale + ')';
+        if (map) map.invalidateSize({ pan: false });
       }
 
       function applyDataset(data) {
-        HOURS = data.meta.hours;
-        DATE = data.meta.date;
+        var previousTime = firstDatasetApplied ? HOURS[Math.round(state.t)] : siteState.time;
+        var selectedId = state.pinnedId !== null && STATIONS[state.pinnedId] ? STATIONS[state.pinnedId].id : (!firstDatasetApplied ? siteState.station : null);
+        DATA_META = data.meta;
+        activeDate = data.meta.date;
+        firstDatasetApplied = true;
+        HOURS = data.meta.timestamps;
+        DATE = data.meta.date || 'No observations';
         STATIONS = data.stations.map(function(station) {
-          return {
-            id: station.id,
-            name: station.name,
-            en: station.name,
-            area: station.area,
-            x: station.x,
-            y: station.y,
-            cap: station.capacity,
-            locked: station.locked,
-            history: station.history
-          };
+          var latest = station.history[station.history.length - 1];
+          return { id: station.id, name: station.name, area: station.area, lat: station.lat, lon: station.lon, x: 0, y: 0, cap: latest ? latest.capacity : null, locked: false, unknown: false, history: station.history };
         });
-        COLLISIONS = data.collisions || [];
-        SERIES = STATIONS.map(function(station) {
-          return {
-            id: station.id,
-            hours: station.history.map(function(item) {
-              return {
-                h: item.hour,
-                bikes: item.bikes,
-                docks: item.docks,
-                faults: item.faults
-              };
-            })
-          };
-        });
-
-        var sourceLabel = document.getElementById('sourceLabel');
-        sourceLabel.textContent = DATE + ' · Data source: ' + data.meta.source;
-
-        buildBlocks();
-        buildStations();
-        buildCollisions();
-        buildTicks();
-        setTime(state.t);
+        COLLISIONS = data.collisions;
+        state.hoverId = null;
+        state.pinnedId = selectedId ? STATIONS.findIndex(function(st) { return st.id === selectedId; }) : null;
+        if (state.pinnedId === -1) state.pinnedId = null;
+        hideTip(); lastTipKey = '';
+        document.getElementById('sourceLabel').textContent = DATE + ' · UTC · ' + (data.meta.mode === 'demo' ? 'Synthetic demo data' : data.meta.source);
+        document.querySelector('.tl-kicker').textContent = data.meta.mode === 'demo' ? 'Demo Playback' : 'Historical Playback';
+        document.querySelector('.map-hint').textContent = !STATIONS.length ? 'Data placeholder · add stations and observations using the template JSON.' : !HOURS.length ? 'No observations for this date.' : data.meta.mode === 'demo' ? 'Synthetic demo data · drag the timeline to test availability changes.' : 'Drag the timeline to explore collected observations · times in UTC.';
+        playBtn.disabled = HOURS.length < 2;
+        if (playBtn.disabled) stopPlay();
+        buildStations(); buildCollisions(); buildTicks();
+        if (!hasFittedMap && STATIONS.length) {
+          map.fitBounds(STATIONS.map(function(st) { return [st.lat, st.lon]; }), { paddingTopLeft: [300, 70], paddingBottomRight: [240, 65], maxZoom: 14 });
+          hasFittedMap = true;
+        }
+        var nextIndex = previousTime ? HOURS.indexOf(previousTime) : -1;
+        setTime(nextIndex >= 0 ? nextIndex : Math.min(1, Math.max(0, HOURS.length - 1)));
       }
 
       async function loadAndRenderData() {
+        if (isRefreshing) return;
+        isRefreshing = true;
         var dataStatus = document.getElementById('dataStatus');
         dataStatus.classList.remove('is-error');
-        dataStatus.classList.remove('is-fallback');
-        dataStatus.innerHTML = '<i></i>Loading data';
-
-        var previousError = document.querySelector('.data-error');
-        if (previousError) previousError.remove();
-
         try {
-          var data = await window.BikeDataService.loadDashboardData();
+          var data = await BikeDataService.loadDashboardData(activeDate || undefined);
           applyDataset(data);
-          var statusText = 'API Data';
-          if (data.meta.loadMode === 'demo') statusText = 'Demo Data';
-          if (data.meta.loadMode === 'fallback') {
-            statusText = 'Demo Fallback';
-            dataStatus.classList.add('is-fallback');
-          }
-          dataStatus.innerHTML = '<i></i>' + statusText;
+          dataStatus.innerHTML = '<i></i>' + ({ demo: 'Demo Data', json: 'JSON Data', mysql: 'MySQL Data' }[data.meta.mode] || 'Data');
+          var previousError = document.querySelector('.data-error');
+          if (previousError) previousError.remove();
         } catch (error) {
           console.error(error);
+          stopPlay();
           dataStatus.classList.add('is-error');
           dataStatus.textContent = 'Data unavailable';
-          document.getElementById('mapShell').insertAdjacentHTML(
-            'beforeend',
-            '<div class="data-error"><strong>Unable to load data.</strong><br />Run the project through VS Code Live Server and check assets/js/config.js.</div>'
-          );
-        }
+          document.querySelector('.map-hint').textContent = 'Unable to load data · check the server configuration. Previous samples may be outdated.';
+        } finally { isRefreshing = false; }
       }
 
       async function initialiseApp() {
-        await loadAndRenderData();
+        try { initMap(); } catch (error) { document.getElementById('dataStatus').textContent = error.message; return; }
+        document.querySelectorAll('.mode-btn').forEach(function(button) {
+          var active = button.getAttribute('data-mode') === state.mode;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        modeCap.textContent = CAP_TEXT[state.mode];
+        roMode.textContent = state.mode === 'borrow' ? 'Borrow mode · Available bikes' : 'Return mode · Available docks';
         fitStage();
+        await loadAndRenderData();
         window.addEventListener('resize', fitStage);
 
-        if (!window.APP_CONFIG.useDemoData && window.APP_CONFIG.refreshIntervalMs > 0) {
+        if (window.APP_CONFIG.refreshIntervalMs > 0) {
           window.setInterval(loadAndRenderData, window.APP_CONFIG.refreshIntervalMs);
         }
       }

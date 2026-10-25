@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>London Bike Pulse · Live Cycle Availability</title>
+  <link rel="stylesheet" href="/vendor/leaflet.css" />
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
@@ -34,83 +35,16 @@
           <p class="mode-cap" id="modeCap">Marker colour = available bikes · Green: 6+ · Amber: 1–5 · Red: none available</p>
         </div>
         <div class="top-right">
-          <span class="chip-live" id="dataStatus"><i></i>Historical Playback</span>
+          <span class="chip-live" id="dataStatus"><i></i>Demo Playback</span>
           <nav class="nav">
             <a class="nav-link is-active" href="./index.html">Map Playback</a>
-            <a class="nav-link" href="https://modao.cc/agent-py/workspace/6ad0e7e561f480e3430c6a55/london-bike-pulse.html/insights.html?render_html=true">Station Insights</a>
+            <a class="nav-link" href="/insights.html">Station Insights</a>
           </nav>
         </div>
       </header>
       <section class="map-shell" id="mapShell">
-        <svg aria-label="London cycle hire station map" class="" id="map" preserveaspectratio="xMidYMid meet" style="color: rgb(250, 255, 255);" viewbox="0 0 1440 700">
-          <rect fill="rgb(250,255,255)" height="700" width="1440" x="0" y="0"></rect>
-          <g id="blocks"></g>
-          <g fill="none" id="roads" stroke="rgb(250,255,255)" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M 120 700 C 240 560 380 470 560 430 C 720 396 900 380 1100 300" stroke-width="9"></path>
-            <path d="M 0 430 C 200 420 340 402 470 398 C 640 392 820 402 1010 382 C 1200 362 1330 332 1440 302" stroke-width="10"></path>
-            <path d="M 1440 640 C 1260 618 1120 574 980 530 C 860 492 780 444 700 382 C 640 336 600 260 560 180 C 540 140 520 90 500 0" stroke-width="9"></path>
-            <path d="M 560 700 C 600 640 640 582 660 520 C 680 460 690 400 700 340" stroke-width="8"></path>
-            <path d="M 900 700 C 940 642 1000 580 1080 520" stroke-width="8"></path>
-            <path d="M 200 0 C 260 120 320 240 380 340" stroke-width="8"></path>
-            <path d="M 430 480 C 430 300 560 170 720 170 C 880 170 990 290 990 460 C 990 560 900 620 800 640" stroke-width="7"></path>
-            <path d="M 60 200 C 180 230 300 210 420 176" stroke-width="7"></path>
-            <path d="M 1060 120 C 1140 200 1200 290 1240 400" stroke-width="7"></path>
-            <path d="M 700 660 C 760 690 860 700 960 690" stroke-width="7"></path>
-          </g>
-          <g fill="rgb(250,255,255)" id="parks">
-            <rect height="140" rx="28" transform="rotate(-6 390 474)" width="196" x="292" y="404"></rect>
-            <circle cx="556" cy="272" r="58"></circle>
-            <rect height="44" rx="20" transform="rotate(-8 559 496)" width="102" x="508" y="474"></rect>
-            <rect height="36" rx="16" width="48" x="470" y="430"></rect>
-            <rect height="88" rx="34" transform="rotate(-6 904 340)" width="104" x="852" y="296"></rect>
-            <rect height="54" rx="26" transform="rotate(5 1060 667)" width="120" x="1000" y="640"></rect>
-            <ellipse cx="474" cy="666" rx="76" ry="32"></ellipse>
-            <rect height="60" rx="26" transform="rotate(-6 386 660)" width="112" x="330" y="630"></rect>
-            <rect height="118" rx="48" transform="rotate(-8 405 121)" width="210" x="300" y="62"></rect>
-          </g>
-          <g id="river">
-            <path d="M 0 600 L 140 588 L 250 606 L 360 610 L 470 596 L 560 582 L 640 576 L 720 580 L 800 584 L 880 568 L 960 552 L 1060 560 L 1160 572 L 1280 556 L 1440 544" fill="none" stroke="rgb(250,255,255)" stroke-linecap="round" stroke-linejoin="round" stroke-width="44"></path>
-            <g id="bridges" stroke-linecap="butt">
-              <g stroke="rgb(250,255,255)" stroke-width="9">
-                <path d="M 400 635 L 400 575"></path>
-                <path d="M 600 610 L 600 548"></path>
-                <path d="M 690 609 L 690 548"></path>
-                <path d="M 760 612 L 760 552"></path>
-                <path d="M 880 598 L 880 538"></path>
-              </g>
-              <g stroke="rgb(250,255,255)" stroke-width="5">
-                <path d="M 400 635 L 400 575"></path>
-                <path d="M 600 610 L 600 548"></path>
-                <path d="M 690 609 L 690 548"></path>
-                <path d="M 760 612 L 760 552"></path>
-                <path d="M 880 598 L 880 538"></path>
-              </g>
-            </g>
-          </g>
-          <g class="map-labels">
-            <text x="72" y="556">KENSINGTON</text>
-            <text x="252" y="236">PADDINGTON</text>
-            <text x="560" y="112">CAMDEN</text>
-            <text x="716" y="232">ISLINGTON</text>
-            <text x="884" y="214">HACKNEY</text>
-            <text x="822" y="356">SHOREDITCH</text>
-            <text x="826" y="470">CITY OF LONDON</text>
-            <text x="296" y="472">WESTMINSTER</text>
-            <text x="628" y="604">SOUTHWARK</text>
-            <text x="316" y="636">LAMBETH</text>
-            <text x="1046" y="690">GREENWICH</text>
-            <text x="1056" y="296">TOWER HAMLETS</text>
-            <text class="park" x="340" y="510">HYDE PARK</text>
-            <text class="park" x="516" y="252">REGENT'S PARK</text>
-            <text class="park" x="1000" y="684">GREENWICH PARK</text>
-            <text class="park" x="852" y="300">VICTORIA PARK</text>
-            <text class="park" x="322" y="110">HAMPSTEAD HEATH</text>
-            <text class="park" x="400" y="628">CLAPHAM COMMON</text>
-            <text class="water" transform="rotate(-3 112 636)" x="112" y="636">RIVER THAMES</text>
-          </g>
-          <g id="collisions"></g>
-          <g id="stations"></g>
-        </svg>
+        <div id="map" aria-label="London cycle hire station map"></div>
+        <svg class="marker-storage" aria-hidden="true"><g id="stations"></g><g id="collisions"></g></svg>
         <div class="legend">
           <h3>MAP LEGEND</h3>
           <div class="lg-row">
@@ -127,7 +61,7 @@
           </div>
           <div class="lg-row">
             <span class="lg-lock">✕</span>
-            <span><b>Locked station</b> · grey marker with a red cross</span>
+            <span><b>Closed / unknown</b> · red cross only when closed</span>
           </div>
           <div class="lg-row">
             <span class="lg-badge">
@@ -151,29 +85,29 @@
         </div>
         <div class="map-readout">
           <div class="ro-mode" id="roMode">Borrow mode · Available bikes</div>
-          <div class="ro-time" id="roTime">09:30</div>
+          <div class="ro-time" id="roTime">—</div>
           <div class="ro-split">
-            <span class="ro-g" id="roGreen">Green 15</span>
-            <span class="ro-a" id="roAmber">Amber 13</span>
-            <span class="ro-r" id="roRed">Red 2</span>
+            <span class="ro-g" id="roGreen">Green 0</span>
+            <span class="ro-a" id="roAmber">Amber 0</span>
+            <span class="ro-r" id="roRed">Red 0</span>
           </div>
         </div>
-        <div class="map-hint">Drag the timeline (08:00–18:00) to see station colours and icon counts change over time.</div>
+        <div class="map-hint">Drag the timeline to explore recorded samples · Demo counts are synthetic.</div>
         <div class="tip" id="tip" style="left: 316px; top: 178px;"></div>
       </section>
       <footer class="timeline">
         <div class="tl-bar">
           <div class="tl-left">
-            <span class="tl-kicker">Historical Playback</span>
-            <span class="tl-clock" id="clock">09:30</span>
+            <span class="tl-kicker">Demo Playback</span>
+            <span class="tl-clock" id="clock">—</span>
             <span class="tl-date" id="sourceLabel">Loading data…</span>
           </div>
           <div class="tl-right">
             <div class="tl-stats">
-              <span class="pill p-green">High <b id="cGreen">15</b></span>
-              <span class="pill p-amber">Limited <b id="cAmber">13</b></span>
-              <span class="pill p-red">Unavailable <b id="cRed">2</b></span>
-              <span class="pill p-grey">Locked <b id="cLocked">3</b></span>
+              <span class="pill p-green">High <b id="cGreen">0</b></span>
+              <span class="pill p-amber">Limited <b id="cAmber">0</b></span>
+              <span class="pill p-red">Unavailable <b id="cRed">0</b></span>
+              <span class="pill p-grey">Inactive <b id="cLocked">0</b></span>
             </div>
             <button class="btn-play" id="playBtn" type="button">Play</button>
           </div>
@@ -188,8 +122,11 @@
       </footer>
     </div>
   </div>
+  <script src="/vendor/leaflet.js" defer></script>
   <script src="./assets/js/config.js" defer></script>
+  <script src="./assets/js/data-contract.js" defer></script>
   <script src="./assets/js/data-service.js" defer></script>
-  <script src="./assets/js/app.js" defer></script>
+  <script src="/assets/js/site-navigation.js" defer></script>
+    <script src="./assets/js/app.js" defer></script>
 </body>
 </html>

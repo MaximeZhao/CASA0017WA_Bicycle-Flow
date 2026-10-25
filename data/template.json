@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "schemaVersion": 2,
+    "source": "Describe your data source here",
+    "timezone": "UTC"
+  },
+  "stations": [],
+  "collisions": []
+}

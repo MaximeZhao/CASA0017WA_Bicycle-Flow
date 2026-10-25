@@ -1,2559 +1,3207 @@
 {
   "meta": {
-    "date": "2026-10-15",
-    "source": "Demo dataset based on a Santander Cycles operational snapshot",
-    "hours": [
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18
-    ]
+    "schemaVersion": 2,
+    "source": "Synthetic teaching fixture; illustrative station locations and collision examples",
+    "timezone": "UTC"
   },
   "stations": [
     {
-      "id": "S01",
+      "id": "DEMO-S01",
       "name": "King's Cross",
+      "lat": 51.5305,
+      "lon": -0.1238,
       "area": "Camden",
-      "x": 612,
-      "y": 262,
-      "capacity": 30,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 23,
           "docks": 5,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 26,
           "docks": 1,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 27,
           "docks": 1,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 27,
           "docks": 2,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 22,
           "docks": 7,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 21,
           "docks": 8,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 21,
           "docks": 7,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 19,
           "docks": 8,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 15,
           "docks": 13,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 5,
           "docks": 24,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 4,
           "docks": 25,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         }
       ]
     },
     {
-      "id": "S02",
+      "id": "DEMO-S02",
       "name": "Paddington",
+      "lat": 51.5154,
+      "lon": -0.1755,
       "area": "Westminster",
-      "x": 402,
-      "y": 344,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 17,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 19,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 22,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 18,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 16,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 17,
           "docks": 6,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 18,
           "docks": 6,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 17,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 13,
           "docks": 12,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 3,
           "docks": 21,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 23,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S03",
+      "id": "DEMO-S03",
       "name": "Oxford Circus",
+      "lat": 51.5152,
+      "lon": -0.1419,
       "area": "Westminster",
-      "x": 490,
-      "y": 382,
-      "capacity": 28,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 22,
           "docks": 4,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 25,
           "docks": 0,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 25,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 23,
           "docks": 4,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 18,
           "docks": 9,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 8,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 19,
           "docks": 6,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 18,
           "docks": 8,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 15,
           "docks": 12,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 3,
           "docks": 24,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 26,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S04",
+      "id": "DEMO-S04",
       "name": "Baker Street",
+      "lat": 51.5226,
+      "lon": -0.1571,
       "area": "Westminster",
-      "x": 452,
-      "y": 336,
-      "capacity": 22,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 13,
           "docks": 7,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 17,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 18,
           "docks": 3,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 15,
           "docks": 5,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 13,
           "docks": 6,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 15,
           "docks": 5,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 14,
           "docks": 7,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 12,
           "docks": 9,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 10,
           "docks": 10,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 2,
           "docks": 18,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 1,
           "docks": 19,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S05",
+      "id": "DEMO-S05",
       "name": "Regent's Park",
+      "lat": 51.5312,
+      "lon": -0.157,
       "area": "Camden",
-      "x": 502,
-      "y": 286,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 13,
           "docks": 8,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 19,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 2,
           "docks": 21,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 11,
           "docks": 12,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 16,
           "docks": 6,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 19,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 19,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 22,
           "docks": 1,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 22,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S06",
+      "id": "DEMO-S06",
       "name": "Euston",
+      "lat": 51.5282,
+      "lon": -0.1337,
       "area": "Camden",
-      "x": 588,
-      "y": 330,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 19,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 21,
           "docks": 2,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 24,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 21,
           "docks": 4,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 17,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 16,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 16,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 15,
           "docks": 9,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 12,
           "docks": 12,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 4,
           "docks": 21,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 2,
           "docks": 23,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         }
       ]
     },
     {
-      "id": "S07",
+      "id": "DEMO-S07",
       "name": "Camden Market",
+      "lat": 51.53768,
+      "lon": -0.11944,
       "area": "Camden",
-      "x": 548,
-      "y": 186,
-      "capacity": 28,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 15,
           "docks": 11,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 1,
           "docks": 26,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 27,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 13,
           "docks": 13,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 22,
           "docks": 4,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 25,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 24,
           "docks": 2,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 24,
           "docks": 3,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 26,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 25,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 25,
           "docks": 0,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S08",
+      "id": "DEMO-S08",
       "name": "Soho Square",
+      "lat": 51.50768,
+      "lon": -0.12384,
       "area": "Westminster",
-      "x": 528,
-      "y": 436,
-      "capacity": 20,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 15,
           "docks": 2,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 18,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 16,
           "docks": 3,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 13,
           "docks": 6,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 13,
           "docks": 5,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 13,
           "docks": 4,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 13,
           "docks": 5,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 11,
           "docks": 8,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 3,
           "docks": 16,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 18,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S09",
+      "id": "DEMO-S09",
       "name": "Covent Garden",
+      "lat": 51.50768,
+      "lon": -0.1036,
       "area": "Westminster",
-      "x": 620,
-      "y": 436,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 17,
           "docks": 6,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 22,
           "docks": 1,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 19,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 17,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 17,
           "docks": 6,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 15,
           "docks": 8,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 11,
           "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 0,
           "docks": 21,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 22,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S10",
+      "id": "DEMO-S10",
       "name": "British Museum",
+      "lat": 51.51368,
+      "lon": -0.09304,
       "area": "Camden",
-      "x": 668,
-      "y": 386,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 19,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 21,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 23,
           "docks": 2,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 19,
           "docks": 6,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 16,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 19,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 18,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 14,
           "docks": 11,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 3,
           "docks": 21,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 24,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S11",
+      "id": "DEMO-S11",
       "name": "Trafalgar Square",
+      "lat": 51.5036,
+      "lon": -0.1124,
       "area": "Westminster",
-      "x": 580,
-      "y": 470,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 21,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 24,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 22,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 18,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 17,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 17,
           "docks": 6,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 17,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 14,
           "docks": 11,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 4,
           "docks": 21,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 1,
           "docks": 24,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         }
       ]
     },
     {
-      "id": "S12",
+      "id": "DEMO-S12",
       "name": "Westminster",
+      "lat": 51.4976,
+      "lon": -0.10184,
       "area": "Westminster",
-      "x": 628,
-      "y": 520,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 16,
           "docks": 6,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 20,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 22,
           "docks": 1,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 18,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 16,
           "docks": 5,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 17,
           "docks": 6,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 15,
           "docks": 8,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 12,
           "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 1,
           "docks": 21,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 21,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S13",
+      "id": "DEMO-S13",
       "name": "St James's Park",
+      "lat": 51.4988,
+      "lon": -0.1256,
       "area": "Westminster",
-      "x": 520,
-      "y": 510,
-      "capacity": 20,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 11,
           "docks": 6,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 15,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 3,
           "docks": 16,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 10,
           "docks": 9,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 12,
           "docks": 6,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 14,
           "docks": 4,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 15,
           "docks": 3,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 14,
           "docks": 4,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 17,
           "docks": 2,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 18,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S14",
+      "id": "DEMO-S14",
       "name": "Victoria",
+      "lat": 51.4952,
+      "lon": -0.13836,
       "area": "Westminster",
-      "x": 462,
-      "y": 540,
-      "capacity": 30,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 21,
           "docks": 7,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 24,
           "docks": 3,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 27,
           "docks": 1,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 24,
           "docks": 5,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 19,
           "docks": 10,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 11,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 19,
           "docks": 9,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 17,
           "docks": 10,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 13,
           "docks": 15,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 5,
           "docks": 24,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 3,
           "docks": 26,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         }
       ]
     },
     {
-      "id": "S15",
+      "id": "DEMO-S15",
       "name": "Kensington",
+      "lat": 51.50576,
+      "lon": -0.19468,
       "area": "Kensington",
-      "x": 206,
-      "y": 452,
-      "capacity": 22,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 12,
           "docks": 8,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 18,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 2,
           "docks": 19,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 11,
           "docks": 10,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 16,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 17,
           "docks": 2,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 18,
           "docks": 2,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 18,
           "docks": 3,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 19,
           "docks": 2,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 20,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S16",
+      "id": "DEMO-S16",
       "name": "Notting Hill",
+      "lat": 51.51032,
+      "lon": -0.16432,
       "area": "Kensington",
-      "x": 344,
-      "y": 414,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 14,
           "docks": 8,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 19,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 2,
           "docks": 20,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 12,
           "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 16,
           "docks": 7,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 17,
           "docks": 5,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 18,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 18,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 21,
           "docks": 2,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 22,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S17",
+      "id": "DEMO-S17",
       "name": "Chelsea",
+      "lat": 51.4952,
+      "lon": -0.174,
       "area": "Kensington",
-      "x": 300,
-      "y": 540,
-      "capacity": 22,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 10,
           "docks": 10,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 1,
           "docks": 20,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 21,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 10,
           "docks": 10,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 15,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 17,
           "docks": 3,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 17,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 16,
           "docks": 5,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 17,
           "docks": 3,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 20,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 20,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S18",
+      "id": "DEMO-S18",
       "name": "Battersea Park",
+      "lat": 51.48008,
+      "lon": -0.15508,
       "area": "Wandsworth",
-      "x": 386,
-      "y": 666,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 15,
           "docks": 8,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 1,
           "docks": 23,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 25,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 12,
           "docks": 13,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 18,
           "docks": 6,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 20,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 22,
           "docks": 2,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 22,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 25,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 25,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 24,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S19",
+      "id": "DEMO-S19",
       "name": "Clapham Common",
+      "lat": 51.47936,
+      "lon": -0.13572,
       "area": "Lambeth",
-      "x": 474,
-      "y": 672,
-      "capacity": 28,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 17,
           "docks": 9,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 2,
           "docks": 23,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 26,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 16,
           "docks": 11,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 21,
           "docks": 6,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 21,
           "docks": 5,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 23,
           "docks": 3,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 22,
           "docks": 4,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 25,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 26,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 26,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         }
       ]
     },
     {
-      "id": "S20",
+      "id": "DEMO-S20",
       "name": "Brixton",
+      "lat": 51.47936,
+      "lon": -0.11284,
       "area": "Lambeth",
-      "x": 578,
-      "y": 672,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 12,
           "docks": 10,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 0,
           "docks": 23,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 23,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 11,
           "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 18,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 21,
           "docks": 1,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 20,
           "docks": 2,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 19,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 22,
           "docks": 1,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 22,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 21,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S21",
+      "id": "DEMO-S21",
       "name": "Southbank Centre",
+      "lat": 51.4832,
+      "lon": -0.1036,
       "area": "Lambeth",
-      "x": 620,
-      "y": 640,
-      "capacity": 28,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 22,
           "docks": 3,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 25,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 26,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 22,
           "docks": 5,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 19,
           "docks": 8,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 19,
           "docks": 7,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 20,
           "docks": 5,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 20,
           "docks": 6,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 16,
           "docks": 11,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 5,
           "docks": 22,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 26,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S22",
+      "id": "DEMO-S22",
       "name": "London Eye",
+      "lat": 51.48392,
+      "lon": -0.08864,
       "area": "Lambeth",
-      "x": 688,
-      "y": 634,
-      "capacity": 22,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 15,
           "docks": 6,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 19,
           "docks": 2,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 21,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 16,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 15,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 16,
           "docks": 4,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 15,
           "docks": 6,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 13,
           "docks": 8,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 10,
           "docks": 10,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 1,
           "docks": 18,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 20,
+          "capacity": 22,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S23",
+      "id": "DEMO-S23",
       "name": "Borough Market",
+      "lat": 51.4808,
+      "lon": -0.07764,
       "area": "Southwark",
-      "x": 738,
-      "y": 660,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 13,
           "docks": 11,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 0,
           "docks": 24,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 25,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 10,
           "docks": 15,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 17,
           "docks": 7,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 19,
           "docks": 4,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 20,
           "docks": 4,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 20,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 22,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 24,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S24",
+      "id": "DEMO-S24",
       "name": "Tower Bridge",
+      "lat": 51.5055,
+      "lon": -0.0754,
       "area": "Southwark",
-      "x": 748,
-      "y": 520,
-      "capacity": 24,
-      "locked": true,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": false,
           "faults": 0
         }
       ]
     },
     {
-      "id": "S25",
+      "id": "DEMO-S25",
       "name": "Shoreditch",
+      "lat": 51.5245,
+      "lon": -0.0786,
       "area": "Hackney",
-      "x": 800,
-      "y": 396,
-      "capacity": 26,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 13,
           "docks": 11,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 1,
           "docks": 24,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 1,
           "docks": 24,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 13,
           "docks": 11,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 19,
           "docks": 4,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 22,
           "docks": 2,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 22,
           "docks": 3,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 20,
           "docks": 5,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 22,
           "docks": 2,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 24,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S26",
+      "id": "DEMO-S26",
       "name": "Bank",
+      "lat": 51.5134,
+      "lon": -0.089,
       "area": "City of London",
-      "x": 704,
-      "y": 462,
-      "capacity": 28,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 21,
           "docks": 4,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 25,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 26,
           "docks": 1,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 22,
           "docks": 5,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 18,
           "docks": 8,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 19,
           "docks": 6,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 21,
           "docks": 5,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 19,
           "docks": 7,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 15,
           "docks": 12,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 1,
           "docks": 26,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 26,
+          "capacity": 28,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S27",
+      "id": "DEMO-S27",
       "name": "Liverpool Street",
+      "lat": 51.5178,
+      "lon": -0.0823,
       "area": "City of London",
-      "x": 748,
-      "y": 414,
-      "capacity": 26,
-      "locked": true,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 26,
+          "isOperational": false,
           "faults": 0
         }
       ]
     },
     {
-      "id": "S28",
+      "id": "DEMO-S28",
       "name": "Canary Wharf",
+      "lat": 51.5054,
+      "lon": -0.0235,
       "area": "Tower Hamlets",
-      "x": 946,
-      "y": 634,
-      "capacity": 30,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 21,
           "docks": 7,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 25,
           "docks": 4,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 27,
           "docks": 2,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 22,
           "docks": 6,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 20,
           "docks": 8,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 21,
           "docks": 6,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 22,
           "docks": 6,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 20,
           "docks": 9,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 16,
           "docks": 13,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 2,
           "docks": 26,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 27,
+          "capacity": 30,
+          "isOperational": true,
           "faults": 3
         }
       ]
     },
     {
-      "id": "S29",
+      "id": "DEMO-S29",
       "name": "Greenwich",
+      "lat": 51.481,
+      "lon": -0.01,
       "area": "Greenwich",
-      "x": 1040,
-      "y": 642,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 14,
           "docks": 7,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 19,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 2,
           "docks": 20,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 12,
           "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 17,
           "docks": 6,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 18,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 18,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 19,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 22,
           "docks": 1,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 23,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 22,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S30",
+      "id": "DEMO-S30",
       "name": "Victoria Park",
+      "lat": 51.5366,
+      "lon": -0.038,
       "area": "Tower Hamlets",
-      "x": 892,
-      "y": 342,
-      "capacity": 22,
-      "locked": true,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 0,
           "docks": 0,
+          "capacity": 22,
+          "isOperational": false,
           "faults": 0
         }
       ]
     },
     {
-      "id": "S31",
+      "id": "DEMO-S31",
       "name": "Hackney",
+      "lat": 51.545,
+      "lon": -0.0553,
       "area": "Hackney",
-      "x": 856,
-      "y": 286,
-      "capacity": 20,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 11,
           "docks": 6,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 1,
           "docks": 17,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 0,
           "docks": 19,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 10,
           "docks": 9,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 14,
           "docks": 4,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 16,
           "docks": 1,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 17,
           "docks": 1,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 17,
           "docks": 2,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 18,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 18,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         }
       ]
     },
     {
-      "id": "S32",
+      "id": "DEMO-S32",
       "name": "Hampstead",
+      "lat": 51.5567,
+      "lon": -0.178,
       "area": "Camden",
-      "x": 452,
-      "y": 148,
-      "capacity": 20,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 13,
           "docks": 5,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 14,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 2,
           "docks": 16,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 12,
           "docks": 7,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 15,
           "docks": 4,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 15,
           "docks": 3,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 15,
           "docks": 2,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 16,
           "docks": 2,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 19,
           "docks": 0,
+          "capacity": 20,
+          "isOperational": true,
           "faults": 1
         }
       ]
     },
     {
-      "id": "S33",
+      "id": "DEMO-S33",
       "name": "Islington",
+      "lat": 51.538,
+      "lon": -0.102,
       "area": "Islington",
-      "x": 672,
-      "y": 318,
-      "capacity": 24,
-      "locked": false,
       "history": [
         {
-          "hour": 8,
+          "recordedAt": "2026-10-15T08:00:00Z",
           "bikes": 13,
           "docks": 9,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 9,
+          "recordedAt": "2026-10-15T09:00:00Z",
           "bikes": 3,
           "docks": 20,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 10,
+          "recordedAt": "2026-10-15T10:00:00Z",
           "bikes": 2,
           "docks": 21,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 11,
+          "recordedAt": "2026-10-15T11:00:00Z",
           "bikes": 12,
           "docks": 10,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 12,
+          "recordedAt": "2026-10-15T12:00:00Z",
           "bikes": 17,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         },
         {
-          "hour": 13,
+          "recordedAt": "2026-10-15T13:00:00Z",
           "bikes": 20,
           "docks": 2,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 14,
+          "recordedAt": "2026-10-15T14:00:00Z",
           "bikes": 20,
           "docks": 3,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 15,
+          "recordedAt": "2026-10-15T15:00:00Z",
           "bikes": 19,
           "docks": 4,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 16,
+          "recordedAt": "2026-10-15T16:00:00Z",
           "bikes": 21,
           "docks": 2,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 1
         },
         {
-          "hour": 17,
+          "recordedAt": "2026-10-15T17:00:00Z",
           "bikes": 22,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 2
         },
         {
-          "hour": 18,
+          "recordedAt": "2026-10-15T18:00:00Z",
           "bikes": 21,
           "docks": 0,
+          "capacity": 24,
+          "isOperational": true,
           "faults": 3
         }
       ]
@@ -2561,53 +3209,67 @@
   ],
   "collisions": [
     {
-      "x": 350,
-      "y": 250,
+      "id": "DEMO-C01",
       "title": "Hampstead Road and Finchley Road",
       "date": "2026-03-12",
-      "note": "Two cycle–motor vehicle side-swipe collisions were recorded here in the past 12 months. Consider the eastern side street as an alternative."
+      "lat": 51.53,
+      "lon": -0.163,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     },
     {
-      "x": 740,
-      "y": 300,
+      "id": "DEMO-C02",
       "title": "Angel and City Road Junction",
       "date": "2026-01-28",
-      "note": "This junction has no dedicated cycle signal. Two right-turn conflicts were recorded, with heavy traffic at peak times."
+      "lat": 51.524,
+      "lon": -0.0772,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     },
     {
-      "x": 330,
-      "y": 300,
+      "id": "DEMO-C03",
       "title": "Notting Hill Gate Junction",
       "date": "2025-11-09",
-      "note": "Restricted sightlines contributed to three recorded low-speed collisions."
+      "lat": 51.524,
+      "lon": -0.1674,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     },
     {
-      "x": 240,
-      "y": 510,
+      "id": "DEMO-C04",
       "title": "King's Road and Chelsea Road Bend",
       "date": "2025-09-21",
-      "note": "Sightlines are restricted on the bend and wet-weather risk is higher. Two skidding incidents were recorded."
+      "lat": 51.4988,
+      "lon": -0.1872,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     },
     {
-      "x": 860,
-      "y": 500,
+      "id": "DEMO-C05",
       "title": "Rotherhithe Cycleway (south of Tower Bridge Road)",
       "date": "2025-07-14",
-      "note": "The cycleway overlaps a freight route. One collision was recorded."
+      "lat": 51.5,
+      "lon": -0.0508,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     },
     {
-      "x": 520,
-      "y": 640,
+      "id": "DEMO-C06",
       "title": "Westminster Bridge South Approach",
       "date": "2025-06-02",
-      "note": "The approach crosses a bus lane with restricted visibility. One collision was recorded."
+      "lat": 51.4832,
+      "lon": -0.1256,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     },
     {
-      "x": 990,
-      "y": 600,
+      "id": "DEMO-C07",
       "title": "Greenwich Peninsula Cycleway",
       "date": "2025-02-17",
-      "note": "Roadworks narrow this section of the cycleway. One collision was recorded."
+      "lat": 51.488,
+      "lon": -0.0222,
+      "note": "Synthetic test example only. Not a verified collision record.",
+      "source": "Synthetic demo fixture"
     }
   ]
 }

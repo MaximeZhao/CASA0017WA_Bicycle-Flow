@@ -1,9 +1,20 @@
 {
   "name": "london-bike-pulse",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "London cycle hire availability visualisation",
+  "description": "Leaflet + OpenStreetMap dashboard with JSON/MySQL data adapters",
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "db:init": "node scripts/init-db.js",
+    "data:validate": "node scripts/validate-data.js",
+    "data:import": "node scripts/import-data.js"
+  },
+  "dependencies": {
+    "leaflet": "1.9.4",
+    "mysql2": "^3.15.3"
   }
 }

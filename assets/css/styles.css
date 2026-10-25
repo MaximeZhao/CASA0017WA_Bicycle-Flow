@@ -247,6 +247,7 @@ body {
 }
 
 .disc {
+  filter: drop-shadow(0 2px 3px rgba(15, 23, 42, .16));
   transition: fill .55s ease, fill-opacity .3s ease, r .3s cubic-bezier(.4, 0, .2, 1),
     stroke .3s ease, stroke-width .3s ease;
 }
@@ -259,11 +260,11 @@ body {
 
 @keyframes critical-flash {
   0%, 100% {
-    fill-opacity: .18;
+    fill-opacity: .72;
     filter: drop-shadow(0 0 0 rgba(220, 38, 38, 0));
   }
   50% {
-    fill-opacity: .62;
+    fill-opacity: .85;
     filter: drop-shadow(0 0 9px rgba(220, 38, 38, .9));
   }
 }
@@ -840,3 +841,15 @@ body {
   text-align: center;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
 }
+
+/* Leaflet integration only: preserve the original page and marker design. */
+.marker-storage { position: absolute; width: 0; height: 0; overflow: hidden; }
+#map { position: absolute; inset: 0; z-index: 0; background: #e8ecf1; }
+#map .leaflet-tile-pane { filter: saturate(.42); opacity: .65; }
+.legend, .map-readout, .map-hint { z-index: 500; }
+.tip { z-index: 650; }
+#map .leaflet-control-zoom { margin-top: 345px; margin-left: 22px; }
+#map .leaflet-control-attribution { background: rgba(255,255,255,.9); font-size: 11px; }
+.bike-map-marker { background: transparent; border: 0; }
+.bike-map-marker svg { display: block; overflow: visible; }
+#map .leaflet-marker-icon:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 0; }

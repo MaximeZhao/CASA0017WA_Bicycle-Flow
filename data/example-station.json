@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "schemaVersion": 2,
+    "source": "Synthetic single-station example; replace before use",
+    "timezone": "UTC"
+  },
+  "stations": [
+    {
+      "id": "DEMO-01",
+      "name": "King’s Cross area",
+      "lat": 51.5305,
+      "lon": -0.1238,
+      "area": null,
+      "history": [
+        {
+          "recordedAt": "2026-10-19T08:00:00Z",
+          "bikes": 11,
+          "docks": 13,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:05:00Z",
+          "bikes": 12,
+          "docks": 12,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:10:00Z",
+          "bikes": 13,
+          "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:15:00Z",
+          "bikes": 14,
+          "docks": 10,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:20:00Z",
+          "bikes": 11,
+          "docks": 13,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:25:00Z",
+          "bikes": 12,
+          "docks": 12,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:30:00Z",
+          "bikes": 13,
+          "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:35:00Z",
+          "bikes": 14,
+          "docks": 10,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:40:00Z",
+          "bikes": 11,
+          "docks": 13,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:45:00Z",
+          "bikes": 12,
+          "docks": 12,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:50:00Z",
+          "bikes": 13,
+          "docks": 11,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T08:55:00Z",
+          "bikes": 14,
+          "docks": 10,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        },
+        {
+          "recordedAt": "2026-10-19T09:00:00Z",
+          "bikes": 11,
+          "docks": 13,
+          "capacity": 24,
+          "isOperational": true,
+          "faults": null
+        }
+      ]
+    }
+  ],
+  "collisions": []
+}
