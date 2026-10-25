@@ -1,4 +1,29 @@
-# London Bike Pulse · 数据驱动模板
+# London Bike Pulse
+
+地图与 Insights 保留同一网站入口；本次只整理职责、文件路径与 Git 记录，不改变页面设计。
+
+## 先找到你需要的内容
+
+| 内容 | 位置 |
+|---|---|
+| 网站启动、地图和 Insights | 根目录 `server.js`、`index.html`、`insights.html`，运行 `npm start` |
+| 前端样式与交互 | `assets/` |
+| 网站数据库适配与配置 | `lib/`、根目录 `.env.example` |
+| 网站数据校验、导入与初始化 | `scripts/` |
+| 网站建表和查询 | `sql/` |
+| 队友上传的采集、事故导入、数据库测试与 CSV 导出 | [data-pipeline/](data-pipeline/README.md) |
+| 队友的原始 Word 和文本说明 | `docs/data-pipeline/` |
+| 原型设计稿与故事板 | `design/` |
+| 小组演示文件 | `docs/presentations/` |
+| 旧单文件网页 | `archive/prototypes/` |
+
+完整移动清单见 [目录说明](docs/REPOSITORY_STRUCTURE.md)，贡献来源见 [CONTRIBUTORS.md](CONTRIBUTORS.md)。
+
+队友的数据采集代码与当前网站模板使用不同数据库结构，两套配置和依赖分别保留；整理目录不代表两套数据库已经完成对接。请先阅读 `data-pipeline/README.md` 再运行会写入数据库的命令。
+
+---
+
+## 网站模板使用说明
 
 Leaflet + OpenStreetMap 地图、站点状态、历史回放和站点分析。
 使用 Node.js 22.13+、Python 3.10+；数据库模式要求 MySQL 8.0.16+。
@@ -89,7 +114,7 @@ SOURCE sql/migrate-legacy.sql;
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
-python fetch_bikes.py --output data/tfl-latest.json
+python scripts/fetch_bikes.py --output data/tfl-latest.json
 npm run data:validate -- data/tfl-latest.json
 ```
 
@@ -97,8 +122,8 @@ npm run data:validate -- data/tfl-latest.json
 确认数据库初始化完成后：
 
 ```bash
-python fetch_bikes.py
-python fetch_bikes.py --interval-minutes 5
+python scripts/fetch_bikes.py
+python scripts/fetch_bikes.py --interval-minutes 5
 ```
 
 第一条采集一次并写入 MySQL；第二条每 5 分钟采集。Ctrl+C 停止。
@@ -114,7 +139,7 @@ python fetch_bikes.py --interval-minutes 5
 - `collisions`：可选真实事故数据，有独立日期、来源；默认没有事故数据。
 
 [docs/DATABASE_REVIEW.md](docs/DATABASE_REVIEW.md) 解释原表问题、新表和数据流。
-[运行Practice.sql](运行Practice.sql) 提供遍历最新状态与历史记录的查询。
+[sql/queries.sql](sql/queries.sql) 提供遍历最新状态与历史记录的查询。
 
 ## 6. 页面和接口
 

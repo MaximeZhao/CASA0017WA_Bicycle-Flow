@@ -71,6 +71,10 @@ test("static allowlist cannot expose credentials, source, git or backup HTML", (
     "/.env",
     "/.git/config",
     "/fetch_bikes.py",
+    "/scripts/fetch_bikes.py",
+    "/data-pipeline/db.js",
+    "/data-pipeline/.env",
+    "/archive/prototypes/index.single-file.backup.html",
     "/server.js",
     "/package.json",
     "/index.single-file.backup.html",
@@ -108,6 +112,10 @@ test("HTTP API, validation errors, pages and private file protection", async () 
     for (const url of [
       "/.env",
       "/fetch_bikes.py",
+    "/scripts/fetch_bikes.py",
+    "/data-pipeline/db.js",
+    "/data-pipeline/.env",
+    "/archive/prototypes/index.single-file.backup.html",
       "/index.single-file.backup.html",
     ])
       assert.equal((await fetch(base + url)).status, 404, url);

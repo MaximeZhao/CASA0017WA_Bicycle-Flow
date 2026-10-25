@@ -1,10 +1,15 @@
 {
-  "name": "london-bike-pulse",
+  "name": "london-bike-pulse-data-pipeline",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Teammate TfL collection, DfT import, CSV export and testing API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:db": "node test_db.js",
+    "collect:bikes": "node collect_bikes.js",
+    "collect:collisions": "node collect_collisions.js",
+    "inspect:collisions": "node inspect_collision_data.js",
+    "export:csv": "node export_csv.js",
+    "start:prototype": "node prototype-server.js",
+    "check": "node --check db.js && node --check collect_bikes.js && node --check collect_collisions.js && node --check inspect_collision_data.js && node --check export_csv.js && node --check test_db.js && node --check prototype-server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +21,6 @@
     "express": "^5.3.0",
     "express-rate-limit": "^8.7.1",
     "mysql2": "^3.24.6"
-  }
+  },
+  "private": true
 }

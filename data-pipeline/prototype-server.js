@@ -4,7 +4,7 @@ const path = require("node:path");
 const db = require("./db");
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PIPELINE_PORT || 3001);
 
 
 app.listen(PORT, "127.0.0.1", () => {
