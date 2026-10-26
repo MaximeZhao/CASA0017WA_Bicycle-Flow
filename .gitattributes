@@ -1,6 +1,7 @@
-# Preserve original uploaded script bytes during directory moves.
-data-pipeline/collect_bikes.js -text
-data-pipeline/collect_collisions.js -text
-data-pipeline/export_csv.js -text
-data-pipeline/inspect_collision_data.js -text
-data-pipeline/test_db.js -text
+# Preserve uploaded file bytes during directory moves.
+v2/collect_bikes.js -text
+v2/collect_collisions.js -text
+v2/export_csv.js -text
+v2/inspect_collision_data.js -text
+v2/test_db.js -text
+v1/original-upload/** -text

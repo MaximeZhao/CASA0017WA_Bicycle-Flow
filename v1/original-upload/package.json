@@ -1,0 +1,9 @@
+{
+  "name": "london-bike-pulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "London cycle hire availability visualisation",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

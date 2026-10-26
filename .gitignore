@@ -5,11 +5,9 @@ node_modules/
 __pycache__/
 .venv/
 *.log
-data/tfl-latest.json
-
-# Teammate pipeline input/output stays local; no credentials or bulk CSV in Git.
-data-pipeline/data/raw/*
-!data-pipeline/data/raw/.gitkeep
-data-pipeline/data/exports/*
-!data-pipeline/data/exports/.gitkeep
 .DS_Store
+v1/data/tfl-latest.json
+v2/data/raw/*
+!v2/data/raw/.gitkeep
+v2/data/exports/*
+!v2/data/exports/.gitkeep
