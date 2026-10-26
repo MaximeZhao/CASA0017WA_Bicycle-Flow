@@ -1,0 +1,2 @@
+﻿report_id,station_id,bike_number,fault_target,fault_type,description,report_status,reported_at,resolved_at
+1,"BikePoints_707",,"bike","brake",,"pending","2026-10-24T07:04:14.000Z",
