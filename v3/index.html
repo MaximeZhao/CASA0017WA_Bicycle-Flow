@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>London Bike Pulse · Live Cycle Availability</title>
+  <link rel="stylesheet" href="/vendor/leaflet.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+
+<body>
+  <div class="stage-wrap" id="stageWrap">
+    <div class="stage" id="stage">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">
+            <svg fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="26">
+              <circle cx="5.5" cy="17" r="3.6"></circle>
+              <circle cx="18.5" cy="17" r="3.6"></circle>
+              <path d="M5.5 17 10 8h4.6l3.9 9"></path>
+              <path d="M10 8 8.6 5.4h-2"></path>
+              <path d="M13.6 8l-2.2 4.6h5.2"></path>
+            </svg>
+          </div>
+          <div class="">
+            <p class=""><br /></p>
+            <h1 class="" style="opacity: 1;">London Bike Pulse</h1>
+          </div>
+        </div>
+        <div class="mode-wrap">
+          <div class="mode-switch" id="modeSwitch">
+            <button class="mode-btn is-active" data-mode="borrow" type="button">Borrow a Bike</button>
+            <button class="mode-btn" data-mode="return" type="button">Return a Bike</button>
+          </div>
+          <p class="mode-cap" id="modeCap">Marker colour = available bikes · Green: 6+ · Amber: 1–5 · Red: none available</p>
+        </div>
+        <div class="top-right">
+          <span class="chip-live" id="dataStatus"><i></i>Loading data</span>
+          <nav class="nav">
+            <a class="nav-link is-active" href="./index.html">Map Playback</a>
+            <a class="nav-link" href="/insights.html">Station Insights</a>
+          </nav>
+        </div>
+      </header>
+      <section class="map-shell" id="mapShell">
+        <div id="map" aria-label="London cycle hire station map"></div>
+        <svg class="marker-storage" aria-hidden="true"><g id="stations"></g><g id="collisions"></g></svg>
+        <div class="legend">
+          <h3>MAP LEGEND</h3>
+          <div class="lg-row">
+            <span class="lg-dot" style="background:rgba(22,163,74,.6);border-color:#16a34a"></span>
+            <span><b>High availability</b> · 6 or more</span>
+          </div>
+          <div class="lg-row">
+            <span class="lg-dot" style="background:rgba(245,158,11,.7);border-color:#f59e0b"></span>
+            <span><b>Limited availability</b> · 1–5</span>
+          </div>
+          <div class="lg-row">
+            <span class="lg-dot" style="background:rgba(220,38,38,.62);border-color:#dc2626"></span>
+            <span><b>Unavailable</b> · 0 available</span>
+          </div>
+          <div class="lg-row">
+            <span class="lg-lock">✕</span>
+            <span><b>Closed / unknown</b> · red cross only when closed</span>
+          </div>
+          <div class="lg-row">
+            <span class="lg-badge">
+              <svg aria-hidden="true" height="11" viewbox="0 0 24 24" width="11">
+                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" fill="#b45309"></path>
+              </svg>2
+            </span>
+            <span><b>Reported faults</b> · numbered wrench badge</span>
+          </div>
+          <div class="lg-row">
+            <span class="lg-tri">
+              <svg aria-hidden="true" height="15" viewBox="0 0 24 22" width="17"><circle cx="12" cy="11" r="5" fill="#dc2626"></circle></svg>
+            </span>
+            <span><b>Historic collision</b> · red dot · up to 100 map samples</span>
+          </div>
+          <div class="lg-note">Blue numbers count grouped stations; click to expand. Bike or dock icons show approximate availability.</div>
+        </div>
+        <div class="map-readout">
+          <div class="ro-mode" id="roMode">Borrow mode · Available bikes</div>
+          <div class="ro-time" id="roTime">—</div>
+          <div class="ro-split">
+            <span class="ro-g" id="roGreen">Green 0</span>
+            <span class="ro-a" id="roAmber">Amber 0</span>
+            <span class="ro-r" id="roRed">Red 0</span>
+          </div>
+        </div>
+        <div class="map-hint">Loading MySQL observations · all times in Europe/London.</div>
+        <div class="tip" id="tip" style="left: 316px; top: 178px;"></div>
+      </section>
+      <footer class="timeline">
+        <div class="tl-bar">
+          <div class="tl-left">
+            <span class="tl-kicker">Full-day playback</span>
+            <input id="playbackDate" type="date" aria-label="Playback date in London">
+            <span class="tl-clock" id="clock">—</span>
+            <span class="tl-date" id="sourceLabel">Loading data…</span>
+          </div>
+          <div class="tl-right">
+            <div class="tl-stats">
+              <span class="pill p-green">High <b id="cGreen">0</b></span>
+              <span class="pill p-amber">Limited <b id="cAmber">0</b></span>
+              <span class="pill p-red">Unavailable <b id="cRed">0</b></span>
+              <span class="pill p-grey">Inactive <b id="cLocked">0</b></span>
+            </div>
+            <button class="btn-play" id="latestSample" type="button">Latest data</button>
+            <button class="btn-play" id="playBtn" type="button">Play</button>
+          </div>
+        </div>
+        <div aria-label="Full-day London timeline" aria-valuemax="18" aria-valuemin="8" aria-valuenow="9.50" class="tl-track" id="track" role="slider" tabindex="0">
+          <div class="tl-rail">
+            <div class="tl-fill" id="tlFill" style="width: 15%;"></div>
+          </div>
+          <div class="tl-knob" id="tlKnob" style="left: 15%;"></div>
+          <div class="tl-ticks" id="tlTicks"></div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="/vendor/leaflet.js" defer></script>
+  <script src="./assets/js/config.js" defer></script>
+  <script src="./assets/js/data-contract.js" defer></script>
+  <script src="./assets/js/data-service.js" defer></script>
+  <script src="/assets/js/timeline.js" defer></script>
+  <script src="/assets/js/site-navigation.js" defer></script>
+    <script src="./assets/js/app.js" defer></script>
+</body>
+</html>

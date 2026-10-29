@@ -1,0 +1,5 @@
+.env
+logs/
+data/collector-status.json
+data/collector-status.json.tmp
+sql/*.tmp

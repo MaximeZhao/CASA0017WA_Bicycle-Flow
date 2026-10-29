@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Station Insights · London Bike Pulse</title>
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/insights.css" />
+    <script src="/assets/js/config.js" defer></script>
+    <script src="/assets/js/data-contract.js" defer></script>
+    <script src="/assets/js/data-service.js" defer></script>
+    <script src="/assets/js/timeline.js" defer></script>
+  <script src="/assets/js/site-navigation.js" defer></script>
+    <script src="/assets/js/insights.js" defer></script>
+  </head>
+  <body>
+    <div class="stage-wrap" id="stageWrap">
+      <div class="stage insights-stage" id="stage">
+        <header class="topbar">
+          <div class="brand">
+            <div class="brand-mark">
+              <svg
+                fill="none"
+                height="26"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.7"
+                viewbox="0 0 24 24"
+                width="26"
+              >
+                <circle cx="5.5" cy="17" r="3.6"></circle>
+                <circle cx="18.5" cy="17" r="3.6"></circle>
+                <path d="M5.5 17 10 8h4.6l3.9 9"></path>
+                <path d="M10 8 8.6 5.4h-2"></path>
+                <path d="M13.6 8l-2.2 4.6h5.2"></path>
+              </svg>
+            </div>
+            <div class="">
+              <p class=""><br /></p>
+              <h1 class="" style="opacity: 1">London Bike Pulse</h1>
+            </div>
+          </div>
+          <div class="mode-wrap">
+            <div class="mode-switch" id="modeSwitch">
+              <button
+                class="mode-btn is-active"
+                data-mode="borrow"
+                type="button"
+              >
+                Borrow a Bike
+              </button>
+              <button class="mode-btn" data-mode="return" type="button">
+                Return a Bike
+              </button>
+            </div>
+            <p class="mode-cap" id="modeCap">
+              Station insights · Available bikes
+            </p>
+          </div>
+          <div class="top-right">
+            <span class="chip-live" id="dataStatus"><i></i>Loading data</span>
+            <nav class="nav">
+              <a class="nav-link" href="./index.html">Map Playback</a>
+              <a
+                class="nav-link is-active"
+                aria-current="page"
+                href="/insights.html"
+                >Station Insights</a
+              >
+            </nav>
+          </div>
+        </header>
+        <main class="insights-body">
+          <section class="playback-bar" aria-label="Historical playback">
+            <div class="playback-clock">
+              <span>Playback time · London</span><strong id="clock">—</strong>
+            </div>
+            <div class="playback-track">
+              <label class="sr-only" for="insightTimeline"
+                >Recorded observation time</label
+              ><input
+                type="range"
+                id="insightTimeline"
+                min="0"
+                max="0"
+                value="0"
+                step="1"
+                disabled
+              />
+              <div id="timeLabels" class="time-labels"></div>
+            </div>
+            <label class="date-filter"
+              ><span>Recorded date · London</span
+              ><select id="dateSelect" disabled>
+                <option>No data</option>
+              </select></label
+            >
+            <button type="button" id="latestData" class="btn-play">Latest data</button>
+<button class="btn-play" id="playBtn" disabled>Play</button>
+          </section>
+          <section class="summary-cards" aria-label="Network summary">
+            <article class="summary-card">
+              <span class="summary-icon" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <circle cx="5" cy="17" r="3.4" />
+                  <circle cx="19" cy="17" r="3.4" />
+                  <path
+                    d="m5 17 5-9 5 9H5m5-9h5l4 9M10 8 8 5H5m8 3 2-3h3"
+                  /></svg
+              ></span>
+              <div>
+                <h2>Available bikes</h2>
+                <strong id="totalBikes">—</strong
+                ><small>Across reporting, operational stations</small>
+              </div>
+            </article>
+            <article class="summary-card">
+              <span class="summary-icon" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <rect x="5" y="3" width="14" height="18" rx="3" />
+                  <path d="M12 7v10M8 21h8" /></svg
+              ></span>
+              <div>
+                <h2>Available docks</h2>
+                <strong id="totalDocks">—</strong
+                ><small>Empty spaces available for returns</small>
+              </div>
+            </article>
+            <article class="summary-card">
+              <span class="summary-icon" aria-hidden="true"
+                ><svg viewBox="0 0 24 24">
+                  <path d="M4 20V12m8 8V4m8 16V8" /></svg
+              ></span>
+              <div>
+                <h2>Stations reporting</h2>
+                <strong id="reportingStations">—</strong
+                ><small id="reportingNote"
+                  >Known status at the selected time</small
+                >
+              </div>
+            </article>
+          </section>
+          <section class="analysis-grid">
+            <aside class="panel station-list-panel">
+              <div class="panel-heading">
+                <h2>Station list <span id="stationCount">(0)</span></h2>
+              </div>
+              <label class="station-search"
+                ><span aria-hidden="true">⌕</span
+                ><input
+                  id="stationSearch"
+                  type="search"
+                  aria-label="Search station or area"
+                  placeholder="Search station or area"
+              /></label>
+              <div
+                id="stationList"
+                class="station-list"
+                role="group"
+                aria-label="Select a station"
+              ></div>
+            </aside>
+            <section class="panel station-analysis">
+              <div class="selected-heading">
+                <div>
+                  <h2 id="stationName">Choose a station</h2>
+                  <p id="stationMeta">Station details will appear here.</p>
+                </div>
+                <span id="stationStatus" class="status-badge unknown"
+                  >Unknown</span
+                >
+              </div>
+              <div class="station-metrics">
+                <div>
+                  <span>Available bikes</span
+                  ><strong id="selectedBikes">—</strong>
+                </div>
+                <div>
+                  <span>Available docks</span
+                  ><strong id="selectedDocks">—</strong>
+                </div>
+                <div>
+                  <span>Reported faults</span
+                  ><strong id="selectedFaults">—</strong>
+                </div>
+                <div>
+                  <span>Minimum in loaded samples</span
+                  ><strong id="selectedMinimum">—</strong>
+                </div>
+              </div>
+              <div class="chart-title">
+                <h3>Available bikes and docks</h3>
+                <div class="chart-key">
+                  <span><i class="key-bikes"></i>Bikes</span
+                  ><span><i class="key-docks"></i>Docks</span>
+                </div>
+              </div>
+              <svg
+                id="chart"
+                viewBox="0 0 780 170"
+                role="img"
+                aria-label="Selected station availability by recorded time"
+              ></svg>
+            </section>
+            <aside class="panel safety-panel">
+              <h2>Fault and safety record</h2>
+              <div class="safety-item">
+                <span class="safety-symbol" aria-hidden="true">⚒</span>
+                <div>
+                  <h3>Average reported faults</h3>
+                  <strong id="averageFaults">—</strong
+                  ><small>Across known samples</small>
+                </div>
+              </div>
+              <div class="safety-item">
+                <span class="safety-symbol bars-symbol" aria-hidden="true"
+                  >▥</span
+                >
+                <div>
+                  <h3>Minimum in loaded samples</h3>
+                  <strong id="dailyMinimum">—</strong
+                  ><small id="minimumTime">No recorded observations</small>
+                </div>
+              </div>
+              <div class="safety-item">
+                <span class="safety-symbol warning-symbol" aria-hidden="true"
+                  >△</span
+                >
+                <div>
+                  <h3>Nearby collision records</h3>
+                  <strong id="nearbyCollisions">—</strong
+                  ><small id="collisionSource"
+                    >Within 300 m · loaded dataset</small
+                  >
+                </div>
+              </div>
+            </aside>
+          </section>
+          <section class="bottom-grid">
+            <section class="panel network-panel">
+              <div class="panel-heading">
+                <h2>Network availability by time</h2>
+                <span id="networkMode" class="panel-caption">Borrow mode</span>
+              </div>
+              <div
+                id="networkBars"
+                class="network-bars"
+                role="group"
+                aria-label="Choose an observation time"
+              ></div>
+              <div class="network-legend">
+                <span><i class="status-dot green"></i>High (6+)</span
+                ><span><i class="status-dot amber"></i>Limited (1–5)</span
+                ><span><i class="status-dot red"></i>Unavailable</span
+                ><span><i class="status-dot grey"></i>Closed / unknown</span>
+              </div>
+              <p class="panel-footnote">
+                Select a bar to inspect that recorded time.
+              </p>
+            </section>
+            <section class="panel station-table-panel">
+              <div class="panel-heading">
+                <h2>Station details <span id="tableCount">(0 rows)</span></h2>
+                <div class="table-actions">
+                  <label
+                    ><input id="limitedOnly" type="checkbox" /> Limited /
+                    unavailable only</label
+                  ><button id="sortBtn" type="button" aria-pressed="false">
+                    Sort by availability
+                  </button>
+                </div>
+              </div>
+              <div class="table-scroll">
+                <table>
+                  <caption class="sr-only">
+                    Station availability at selected observation time
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>Station</th>
+                      <th>Area</th>
+                      <th>Capacity</th>
+                      <th>Bikes</th>
+                      <th>Docks</th>
+                      <th>Faults</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="stationRows"></tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+          <footer
+            id="message"
+            class="insights-source"
+            role="status"
+            aria-live="polite"
+          >
+            Loading data…
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "london-bike-pulse-v3",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Leaflet + OpenStreetMap dashboard with JSON/MySQL data adapters",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "data:prepare": "python3 scripts/prepare-showcase.py",
+    "collect:once": "node scripts/collect-once.js",
+    "db:init": "node scripts/db-tools.js init",
+    "db:seed": "node scripts/db-tools.js seed",
+    "db:export": "node scripts/db-tools.js export",
+    "db:import": "node scripts/db-tools.js import",
+    "db:verify": "node scripts/db-tools.js verify",
+    "test:import": "node scripts/verify-snapshot.js"
+  },
+  "dependencies": {
+    "leaflet": "1.9.4",
+    "mysql2": "^3.15.3"
+  }
+}
