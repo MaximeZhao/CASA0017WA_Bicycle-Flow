@@ -1,0 +1,29 @@
+{
+  "source": "/Users/maxlin/Documents/VSCode/LC3/Axure_Test/v2/data/exports",
+  "original": {
+    "stations": 801,
+    "history": 806,
+    "collisions": 5990,
+    "reports": 1
+  },
+  "selected": {
+    "stations": 400,
+    "history": 405,
+    "collisions": 2288
+  },
+  "timestamps": [
+    "2026-10-23T14:07:54Z",
+    "2026-10-23T14:11:58Z"
+  ],
+  "availabilityAtLatest": {
+    "good": 260,
+    "limited": 134,
+    "unavailable": 6
+  },
+  "limitations": [
+    "Only two real observation times; no interpolated or invented history.",
+    "Fault reports are not observation-time counts and are not mapped to faults.",
+    "All original collisions within the selected station bounds are retained; outside records remain in exports.",
+    "2025 collision dates and 2026 availability dates represent different periods."
+  ]
+}
