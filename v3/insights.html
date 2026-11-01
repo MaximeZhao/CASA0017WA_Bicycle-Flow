@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Station Insights · London Bike Pulse</title>
+    <title>Daily Flow · Mind The Dock</title>
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/assets/css/insights.css" />
+    <link rel="stylesheet" href="/assets/css/site.css" />
     <script src="/assets/js/config.js" defer></script>
     <script src="/assets/js/data-contract.js" defer></script>
     <script src="/assets/js/data-service.js" defer></script>
@@ -13,65 +14,14 @@
   <script src="/assets/js/site-navigation.js" defer></script>
     <script src="/assets/js/insights.js" defer></script>
   </head>
-  <body>
+  <body class="insights-page">
     <div class="stage-wrap" id="stageWrap">
       <div class="stage insights-stage" id="stage">
         <header class="topbar">
-          <div class="brand">
-            <div class="brand-mark">
-              <svg
-                fill="none"
-                height="26"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.7"
-                viewbox="0 0 24 24"
-                width="26"
-              >
-                <circle cx="5.5" cy="17" r="3.6"></circle>
-                <circle cx="18.5" cy="17" r="3.6"></circle>
-                <path d="M5.5 17 10 8h4.6l3.9 9"></path>
-                <path d="M10 8 8.6 5.4h-2"></path>
-                <path d="M13.6 8l-2.2 4.6h5.2"></path>
-              </svg>
-            </div>
-            <div class="">
-              <p class=""><br /></p>
-              <h1 class="" style="opacity: 1">London Bike Pulse</h1>
-            </div>
-          </div>
-          <div class="mode-wrap">
-            <div class="mode-switch" id="modeSwitch">
-              <button
-                class="mode-btn is-active"
-                data-mode="borrow"
-                type="button"
-              >
-                Borrow a Bike
-              </button>
-              <button class="mode-btn" data-mode="return" type="button">
-                Return a Bike
-              </button>
-            </div>
-            <p class="mode-cap" id="modeCap">
-              Station insights · Available bikes
-            </p>
-          </div>
-          <div class="top-right">
-            <span class="chip-live" id="dataStatus"><i></i>Loading data</span>
-            <nav class="nav">
-              <a class="nav-link" href="./index.html">Map Playback</a>
-              <a
-                class="nav-link is-active"
-                aria-current="page"
-                href="/insights.html"
-                >Station Insights</a
-              >
-            </nav>
-          </div>
-        </header>
-        <main class="insights-body">
+  <a class="brand" href="/home.html" data-page="home" aria-label="Mind The Dock home"><span class="brand-mark" aria-hidden="true"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3.6"/><circle cx="18.5" cy="17" r="3.6"/><path d="M5.5 17 10 8h4.6l3.9 9M10 8 8.6 5.4h-2M13.6 8l-2.2 4.6h5.2"/></svg></span><span class="brand-name">Mind The Dock</span></a>
+  <nav class="nav" aria-label="Main navigation"><a class="nav-link" data-page="home" href="/home.html">Home</a><a class="nav-link" data-page="map" href="/">Live Map</a><a class="nav-link" data-page="flow" href="/insights.html">Daily Flow</a><a class="nav-link" data-page="contact" href="/contact.html">Contact Us</a></nav>
+</header>
+        <main class="insights-body"><div class="flow-intro"><div><p class="eyebrow">Station availability</p><h1>Daily Flow</h1><span class="chip-live" id="dataStatus"><i></i>Loading data</span></div><div class="mode-wrap"><div class="mode-switch" id="modeSwitch"><button class="mode-btn is-active" data-mode="borrow" type="button">Find a Bike</button><button class="mode-btn" data-mode="return" type="button">Return a Bike</button></div><p class="mode-cap" id="modeCap">Available bikes</p></div></div>
           <section class="playback-bar" aria-label="Historical playback">
             <div class="playback-clock">
               <span>Playback time · London</span><strong id="clock">—</strong>

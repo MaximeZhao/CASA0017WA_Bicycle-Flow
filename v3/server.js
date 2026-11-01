@@ -14,7 +14,7 @@ function send(res, status, type, body) {
 }
 function json(res, status, data) { send(res, status, 'application/json; charset=utf-8', JSON.stringify(data)); }
 function staticPath(urlPath) {
-  const pages = { '/':'index.html', '/index.html':'index.html', '/insights.html':'insights.html', '/vendor/leaflet.js':'node_modules/leaflet/dist/leaflet.js', '/vendor/leaflet.css':'node_modules/leaflet/dist/leaflet.css' };
+  const pages = { '/':'index.html', '/index.html':'index.html', '/home.html':'home.html', '/daily-flow.html':'insights.html', '/contact.html':'contact.html', '/insights.html':'insights.html', '/vendor/leaflet.js':'node_modules/leaflet/dist/leaflet.js', '/vendor/leaflet.css':'node_modules/leaflet/dist/leaflet.css' };
   if (pages[urlPath]) return path.join(config.root, pages[urlPath]);
   if (!/^\/assets\/(css|js)\/[a-zA-Z0-9_-]+\.(css|js)$/.test(urlPath)) return null;
   return path.join(config.root, urlPath.slice(1));
@@ -42,7 +42,7 @@ function createServer() {
 }
 if (require.main === module) {
   const server = createServer();
-  server.listen(config.port,config.host,() => console.log(`London Bike Pulse: http://${config.host}:${config.port} [${config.mode}]`));
+  server.listen(config.port,config.host,() => console.log(`Mind The Dock: http://${config.host}:${config.port} [${config.mode}]`));
   async function stop() { server.close(); await require('./lib/database').close(); }
   process.on('SIGTERM',stop); process.on('SIGINT',stop);
 }

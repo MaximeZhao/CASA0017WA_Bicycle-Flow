@@ -1,4 +1,4 @@
-/* Shared navigation for the two pages of the same London Bike Pulse website. */
+/* Shared navigation and recorded-view state for Mind The Dock. */
 (function (root, factory) {
   if (typeof module === "object" && module.exports)
     module.exports = factory(null);
@@ -8,6 +8,14 @@
   const timeline = browser ? browser.BikeTimeline : require("./timeline");
   const storageKey = "london-bike-pulse:view:v3";
   const fields = ["station", "date", "time", "mode"];
+  // Keep Daily Flow on the original insights route so older running servers and saved links still work.
+  const paths = { home: "/home.html", map: "/", flow: "/insights.html", insights: "/insights.html", contact: "/contact.html" };
+  function pageForPath(pathname) {
+    if (pathname.endsWith("/home.html")) return "home";
+    if (pathname.endsWith("/contact.html")) return "contact";
+    if (pathname.endsWith("/insights.html") || pathname.endsWith("/daily-flow.html")) return "flow";
+    return "map";
+  }
   function clean(input) {
     const state = {};
     if (
@@ -46,7 +54,7 @@
   function url(page, state) {
     const params = new URLSearchParams(clean(state));
     return (
-      (page === "insights" ? "/insights.html" : "/") +
+      (paths[page] || paths.map) +
       (params.size ? "?" + params.toString() : "")
     );
   }
@@ -62,13 +70,14 @@
   let lastSaved = "";
   function updateLinks() {
     if (!browser) return;
-    const insights = browser.location.pathname.endsWith("/insights.html");
-    browser.document.querySelectorAll(".nav-link").forEach((link) => {
+    const activePage = pageForPath(browser.location.pathname);
+    browser.document.querySelectorAll(".nav-link, [data-page]").forEach((link) => {
       const target = new URL(link.getAttribute("href"), browser.location.origin)
         .pathname;
-      const page = target.endsWith("/insights.html") ? "insights" : "map";
+      const page = link.dataset.page || pageForPath(target);
       link.setAttribute("href", url(page, current));
-      const active = page === (insights ? "insights" : "map");
+      if (!link.classList.contains("nav-link")) return;
+      const active = page === activePage;
       link.classList.toggle("is-active", active);
       if (active) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");
@@ -87,11 +96,12 @@
       }
     updateLinks();
     if (browser) {
-      const target = url(browser.location.pathname.endsWith('/insights.html') ? 'insights' : 'map', current);
+      const page = browser.location.pathname.endsWith('/insights.html') ? 'insights' : pageForPath(browser.location.pathname);
+      const target = url(page, current);
       if (browser.location.pathname + browser.location.search !== target)
         browser.history.replaceState(null, '', target);
     }
   }
   updateLinks();
-  return { read: () => ({ ...current }), update, url, parse };
+  return { read: () => ({ ...current }), update, url, parse, pageForPath };
 });

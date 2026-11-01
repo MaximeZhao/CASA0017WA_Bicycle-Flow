@@ -4,6 +4,21 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const timeline=require('../assets/js/timeline');
 const {selectDate,loadDashboard}=require('../lib/data-source');
 const data=require('../data/showcase.json');
+
+test('timeline position follows elapsed time even when capture intervals are uneven',()=>{
+ const times=['2026-10-28T00:00:00Z','2026-10-28T00:01:00Z','2026-10-28T12:00:00Z','2026-10-28T23:59:00Z'];
+ assert.ok(Math.abs(timeline.positionRatio(times,2)-0.5)<0.001);
+ assert.equal(timeline.indexAtRatio(times,0.5),2);
+ assert.equal(timeline.indexAtRatio(times,-1),0);
+ assert.equal(timeline.indexAtRatio(times,2),3);
+ assert.equal(timeline.indexAtRatio(times,timeline.positionRatio(times,1)),1);
+});
+test('timeline geometry handles empty and single-observation views',()=>{
+ assert.equal(timeline.positionRatio([],0),0);
+ assert.equal(timeline.indexAtRatio([],0.5),0);
+ assert.equal(timeline.positionRatio(['2026-10-28T08:00:00Z'],0),0);
+ assert.equal(timeline.indexAtRatio(['2026-10-28T08:00:00Z'],0.9),0);
+});
 test('London full day includes midnight, 23:59 and exact original observations',async()=>{
  const loaded=await loadDashboard('2026-10-23');
  assert.equal(timeline.clock(loaded.meta.timestamps[0]),'00:00');

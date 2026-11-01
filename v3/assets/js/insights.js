@@ -491,7 +491,7 @@
   function render() {
     if (!data) return;
     $("clock").textContent = time(selectedTime());
-    $("insightTimeline").value = index;
+    $("insightTimeline").value = Math.max(0, Date.parse(selectedTime()) - Date.parse(data.meta.timestamps[0])) || 0;
     $("insightTimeline").setAttribute(
       "aria-valuetext",
       time(selectedTime()) + " London",
@@ -507,14 +507,6 @@
       time: selectedTime(),
       mode,
     });
-  }
-  function fitStage() {
-    const scale = Math.min(
-      $("stageWrap").clientWidth / 1440,
-      $("stageWrap").clientHeight / 900,
-      1,
-    );
-    $("stage").style.transform = "scale(" + scale + ")";
   }
   async function load(date) {
     stop();
@@ -546,7 +538,7 @@
       if (!dates.length) $("dateSelect").add(new Option("No observations", ""));
       $("dateSelect").value = data.meta.date || "";
       $("dateSelect").disabled = !dates.length;
-      $("insightTimeline").max = Math.max(0, data.meta.timestamps.length - 1);
+      $("insightTimeline").max = Math.max(0, Date.parse(data.meta.timestamps.at(-1)) - Date.parse(data.meta.timestamps[0])) || 0;
       $("insightTimeline").disabled = data.meta.timestamps.length < 2;
       $("playBtn").disabled = data.meta.timestamps.length < 2;
       const times = data.meta.timestamps;
@@ -557,7 +549,7 @@
       $("dataStatus").replaceChildren(
         element("i"),
         document.createTextNode(
-          { demo: "Demo Data", json: "JSON Data", mysql: "MySQL Data" }[
+          { demo: "Demo data", json: "Recorded data", mysql: "Database data" }[
             data.meta.mode
           ] || "Data",
         ),
@@ -570,10 +562,8 @@
             " · All times Europe/London"
           : !data.stations.length
             ? "Import the project SQL snapshot into MySQL to load observations."
-            : data.meta.source +
-              " · " +
-              (data.meta.date || "No observations") +
-              " · Recorded samples, not trip counts · All times Europe/London";
+            : "Recorded station availability · " + (data.meta.date || "No observations") +
+              " · " + data.stations.length + " selected stations · London time · Missing observations remain as gaps.";
       render();
     } catch (error) {
       if (error.name === "AbortError") return;
@@ -594,14 +584,20 @@
         b.setAttribute("aria-pressed", String(b === button));
       });
       $("modeCap").textContent =
-        "Station insights · Available " +
+        "Daily Flow · Available " +
         (mode === "borrow" ? "bikes" : "docks");
       render();
     }),
   );
   $("insightTimeline").addEventListener("input", () => {
     stop();
-    setTime($("insightTimeline").value);
+    setTime(BikeTimeline.indexAtRatio(data.meta.timestamps, Number($("insightTimeline").value) / Number($("insightTimeline").max)));
+  });
+  $("insightTimeline").addEventListener("keydown", event => {
+    if (!data || !['Home','End','ArrowRight','ArrowUp','ArrowLeft','ArrowDown'].includes(event.key)) return;
+    event.preventDefault(); stop();
+    setTime(event.key === 'Home' ? 0 : event.key === 'End' ? data.meta.timestamps.length - 1 :
+      index + (['ArrowRight','ArrowUp'].includes(event.key) ? 1 : -1));
   });
   $("playBtn").addEventListener("click", () => {
     if (timer) {
@@ -637,15 +633,13 @@
   $("dateSelect").addEventListener("change", () => { followLatest=false; load($("dateSelect").value); });
   $("latestData").addEventListener("click", () => { followLatest=true; load(); });
   window.setInterval(() => { if (!timer && !document.hidden) load(followLatest ? undefined : data?.meta.date); }, APP_CONFIG.refreshIntervalMs || 60000);
-  window.addEventListener("resize", fitStage);
   window.addEventListener("pagehide", stop);
-  fitStage();
   document.querySelectorAll("[data-mode]").forEach((button) => {
     const active = button.dataset.mode === mode;
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   });
   $("modeCap").textContent =
-    "Station insights · Available " + (mode === "borrow" ? "bikes" : "docks");
+    "Daily Flow · Available " + (mode === "borrow" ? "bikes" : "docks");
   load(siteState.date || undefined);
 })();

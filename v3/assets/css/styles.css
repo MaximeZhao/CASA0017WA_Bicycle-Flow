@@ -252,25 +252,7 @@ body {
     stroke .3s ease, stroke-width .3s ease;
 }
 
-.disc.is-critical {
-  animation: critical-flash 1.25s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-@keyframes critical-flash {
-  0%, 100% {
-    fill-opacity: .72;
-    filter: drop-shadow(0 0 0 rgba(220, 38, 38, 0));
-  }
-  50% {
-    fill-opacity: .85;
-    filter: drop-shadow(0 0 9px rgba(220, 38, 38, .9));
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .disc.is-critical,
   .pulse-ring,
   .chip-live i {
     animation: none !important;

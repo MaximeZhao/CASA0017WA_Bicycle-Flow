@@ -9,12 +9,28 @@ test("both pages carry the same station, date, time and mode in same-site URLs",
     time: "2026-10-15T10:00:00Z",
     mode: "return",
   };
-  for (const page of ["map", "insights"]) {
+  const paths = { map: "/", insights: "/insights.html", home: "/home.html", flow: "/insights.html", contact: "/contact.html" };
+  for (const page of Object.keys(paths)) {
     const url = new URL(navigation.url(page, state), "http://localhost:3000");
     assert.equal(url.origin, "http://localhost:3000");
-    assert.equal(url.pathname, page === "map" ? "/" : "/insights.html");
+    assert.equal(url.pathname, paths[page]);
     assert.deepEqual(navigation.parse(url.search), state);
   }
+});
+
+test("Daily Flow reuses the established Station Insights route", () => {
+  const state = { station: "BikePoints_24", date: "2026-10-28", time: "2026-10-28T08:00:00Z", mode: "return" };
+  assert.equal(navigation.url('flow', state), navigation.url('insights', state));
+  assert.deepEqual(navigation.parse(new URL(navigation.url('flow', state), 'http://localhost').search), state);
+});
+
+test("each navigation page is identified without treating Home or Contact as the map", () => {
+  assert.equal(navigation.pageForPath('/home.html'), 'home');
+  assert.equal(navigation.pageForPath('/'), 'map');
+  assert.equal(navigation.pageForPath('/index.html'), 'map');
+  assert.equal(navigation.pageForPath('/daily-flow.html'), 'flow');
+  assert.equal(navigation.pageForPath('/insights.html'), 'flow');
+  assert.equal(navigation.pageForPath('/contact.html'), 'contact');
 });
 test("direct URL state takes priority while plain navigation can restore saved state", () => {
   const cached = {

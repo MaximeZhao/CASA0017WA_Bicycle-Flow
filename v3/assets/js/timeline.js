@@ -11,5 +11,7 @@
  function fullDay(day,observations=[]){if(!day)return [];const [start,end]=bounds(day);const times=[];for(let t=start;t<end;t+=300000)times.push(iso(t));times.push(iso(end-60000));return [...new Set([...times,...observations.filter(t=>Date.parse(t)>=start&&Date.parse(t)<end)])].sort();}
  function freshSnapshot(history,selected,maxAge){let lo=0,hi=history.length-1,result=null;while(lo<=hi){const mid=(lo+hi)>>1;if(history[mid].recordedAt<=selected){result=history[mid];lo=mid+1;}else hi=mid-1;}return result&&(Date.parse(selected)-Date.parse(result.recordedAt))/1000<=maxAge?result:null;}
  function tickIndexes(times){return times.map((t,i)=>i).filter(i=>i===0||i===times.length-1||/^(00|03|06|09|12|15|18|21):00$/.test(clock(times[i])));}
- return {timezone,dayOf,clock,bounds,fullDay,freshSnapshot,tickIndexes};
+ function positionRatio(times,index){if(times.length<2)return 0;const start=Date.parse(times[0]),end=Date.parse(times.at(-1));if(end<=start)return 0;return Math.max(0,Math.min(1,(Date.parse(times[Math.max(0,Math.min(times.length-1,index))])-start)/(end-start)));}
+ function indexAtRatio(times,ratio){if(times.length<2)return 0;const start=Date.parse(times[0]),end=Date.parse(times.at(-1)),target=start+Math.max(0,Math.min(1,Number(ratio)||0))*(end-start);let lo=0,hi=times.length-1;while(lo<hi){const mid=(lo+hi)>>1;if(Date.parse(times[mid])<target)lo=mid+1;else hi=mid;}return lo>0&&target-Date.parse(times[lo-1])<=Date.parse(times[lo])-target?lo-1:lo;}
+ return {timezone,dayOf,clock,bounds,fullDay,freshSnapshot,tickIndexes,positionRatio,indexAtRatio};
 });

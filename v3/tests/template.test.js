@@ -23,7 +23,7 @@ test('real JSON backend serves both pages and filtering without exposing private
  try{
   const result=await fetch(base+'/api/dashboard');assert.equal(result.status,200);const payload=await result.json();validate(payload);assert.equal(payload.meta.mode,'json');assert.equal(payload.stations.length,400);assert.equal(payload.collisions.length,2288);
   const collection=await(await fetch(base+'/api/collection-status')).json();assert.equal(collection.intervalSeconds,300);assert.ok(!Object.hasOwn(collection,'password'));
-  for(const url of ['/','/insights.html','/vendor/leaflet.js','/vendor/leaflet.css'])assert.equal((await fetch(base+url)).status,200);
+  for(const url of ['/','/insights.html','/home.html','/daily-flow.html','/contact.html','/vendor/leaflet.js','/vendor/leaflet.css','/assets/js/place-search.js','/assets/css/site.css'])assert.equal((await fetch(base+url)).status,200,url);
   for(const url of ['/.env','/server.js','/data/showcase.json'])assert.equal((await fetch(base+url)).status,404);
   assert.equal((await fetch(base+'/api/dashboard?date=not-a-date')).status,400);
   const empty=await(await fetch(base+'/api/dashboard?date=2020-01-01')).json();assert.ok(empty.meta.timestamps.length>=289);assert.ok(empty.stations.every(s=>s.history.length===0));assert.equal(payload.meta.displayTimezone,"Europe/London");assert.equal(payload.meta.observationTimestamps.length,2);

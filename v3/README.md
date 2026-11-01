@@ -1,5 +1,9 @@
 # London Bike Pulse — V3
 
+The current interface is branded **Mind The Dock**. Daily Flow uses the original `/insights.html` page, retaining all station-analysis features. See [current UI PBIs](../docs/LIVE_MAP_PBIS.md) and [data coverage](../docs/DATA_COVERAGE.md).
+
+During development, `npm run dev` watches the Node server and restarts it after backend code changes. A previously started `npm start` process must be stopped once before switching to this command. Refresh the browser after frontend changes.
+
 A MySQL-backed cycle-hire dashboard with a Leaflet/OpenStreetMap map, historical playback and station insights. The included SQL snapshot lets another developer reproduce the project with their own local database.
 
 Station selection, availability history and collision records are read from MySQL during normal operation. CSV and JSON files are retained as migration inputs and test fixtures, rather than runtime data sources.
