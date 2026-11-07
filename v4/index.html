@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#2457d6">
+  <title>Live Map · Mind The Dock</title>
+  <link rel="stylesheet" href="/vendor/leaflet.css"><link rel="stylesheet" href="/assets/css/styles.css"><link rel="stylesheet" href="/assets/css/site.css"><link rel="stylesheet" href="/assets/css/map-controls.css">
+</head>
+<body class="map-page">
+  <div class="stage-wrap" id="stageWrap"><div class="stage" id="stage">
+    <header class="topbar">
+      <a class="brand" href="/home.html" data-page="home" aria-label="Mind The Dock home">
+        <span class="brand-mark" aria-hidden="true"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3.6"/><circle cx="18.5" cy="17" r="3.6"/><path d="M5.5 17 10 8h4.6l3.9 9M10 8 8.6 5.4h-2M13.6 8l-2.2 4.6h5.2"/></svg></span>
+        <span class="brand-name">Mind The Dock</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link" data-page="home" href="/home.html">Home</a>
+        <a class="nav-link is-active" data-page="map" href="/" aria-current="page">Live Map</a>
+        <a class="nav-link" data-page="flow" href="/insights.html">Daily Flow</a>
+        <a class="nav-link" data-page="contact" href="/contact.html">Contact Us</a>
+      </nav>
+    </header>
+    <section class="map-shell" id="mapShell" aria-label="Cycle hire map">
+      <div id="map" aria-label="London cycle hire station map"></div>
+      <svg class="marker-storage" aria-hidden="true"><g id="stations"></g><g id="collisions"></g></svg>
+      <!-- Left-side tools reveal one panel at a time, keeping the map clear. -->
+      <button class="map-fab tools-toggle" id="toolsToggle" type="button" aria-expanded="false" aria-controls="mapTools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Map tools</button>
+      <aside class="map-tools" id="mapTools" aria-label="Map tools" hidden>
+        <div class="drawer-heading"><h2>Explore the map</h2><button class="close-control" id="closeTools" type="button" aria-label="Close map tools">×</button></div>
+        <p class="drawer-intro">Choose a tool to get started.</p>
+        <button class="tool-disclosure" type="button" data-tool-panel="searchPanel" aria-controls="searchPanel" aria-expanded="false"><span class="tool-number">01</span>Search board<span class="tool-chevron" aria-hidden="true">⌄</span></button>
+        <section class="tool-panel" id="searchPanel" aria-label="Search board" hidden>
+          <form class="search-board" id="placeSearchForm" role="search">
+        <label class="sr-only" for="placeSearch">Search an area or station</label>
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="placeSearch" type="search" placeholder="Search an area or station" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="placeResults" aria-expanded="false" spellcheck="false">
+        <button class="search-submit" type="submit">Search</button>
+        <ul class="place-results" id="placeResults" role="listbox" aria-label="Matching areas and stations" hidden></ul>
+        <p class="sr-only" id="searchStatus" role="status" aria-live="polite"></p>
+      </form>
+        </section>
+        <button class="tool-disclosure" type="button" data-tool-panel="mapLegend" aria-controls="mapLegend" aria-expanded="false"><span class="tool-number">02</span>Colours & map key<span class="tool-chevron" aria-hidden="true">⌄</span></button>
+        <section class="tool-panel legend" id="mapLegend" aria-label="Map key" hidden>
+        <div class="legend-content">
+          <div class="lg-row"><span class="lg-dot key-green"></span><span><b>High availability</b> · 6 or more</span></div>
+          <div class="lg-row"><span class="lg-dot key-amber"></span><span><b>Limited availability</b> · 1–5</span></div>
+          <div class="lg-row"><span class="lg-dot key-red"></span><span><b>Unavailable</b> · 0 available</span></div>
+          <div class="lg-row"><span class="lg-lock">×</span><span><b>Closed station</b></span></div>
+          <div class="lg-row"><span class="lg-dot key-grey"></span><span><b>No fresh observation</b></span></div>
+          <div class="lg-row"><span class="maintenance-key" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></span><span><b>Out-of-service docks</b></span></div>
+          <div class="lg-row"><span class="collision-key" aria-hidden="true"><svg viewBox="0 0 24 24" fill="white" stroke="#dc2626" stroke-width="2" stroke-linejoin="round"><path d="M12 2 23 21H1Z"/><path d="M12 8v6" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1.15" fill="#dc2626" stroke="none"/></svg></span><span><b>Historic collision</b> · map sample</span></div>
+          <div class="lg-row"><span class="key-blue">12</span><span><b>Blue groups</b> · number of stations</span></div>
+          <p class="lg-note">Blue numbers count grouped stations. Select a group to zoom in, or a station for details.</p>
+        </div>
+      </section>
+
+        <button class="tool-disclosure" type="button" data-tool-panel="modePanel" aria-controls="modePanel" aria-expanded="false"><span class="tool-number">03</span>Find / return a bike<span class="tool-chevron" aria-hidden="true">⌄</span></button>
+        <section class="tool-panel" id="modePanel" aria-label="Find or return a bike" hidden>
+          <div class="mode-wrap">
+        <div class="mode-switch" id="modeSwitch" role="group" aria-label="Availability mode">
+          <button class="mode-btn is-active" data-mode="borrow" type="button">Find a Bike</button><button class="mode-btn" data-mode="return" type="button">Return a Bike</button>
+        </div>
+        <p class="mode-cap" id="modeCap">Available bikes · Green 6+ · Amber 1–5 · Red 0</p>
+      </div>
+        </section>
+        <button class="tool-disclosure" type="button" data-tool-panel="collisionPanel" aria-controls="collisionPanel" aria-expanded="false"><span class="tool-number">04</span>Historic collisions<span class="tool-chevron" aria-hidden="true">⌄</span></button>
+        <section class="tool-panel safety-layer" id="collisionPanel" aria-label="Safety layer" hidden>
+        <div class="safety-layer-heading"><span id="collisionToggleLabel">Historic collisions</span><button id="collisionToggle" class="layer-switch" type="button" role="switch" aria-checked="true" aria-labelledby="collisionToggleLabel"><span aria-hidden="true"></span></button></div>
+        <p>Up to 100 original map samples</p>
+      </section>
+
+      </aside>
+      <aside class="map-readout" aria-label="Availability summary">
+        <div class="readout-heading"><span class="ro-mode" id="roMode">Available bikes</span><span class="ro-time" id="roTime">—</span></div>
+        <div class="ro-split"><span class="ro-g" id="roGreen">High 0</span><span class="ro-a" id="roAmber">Limited 0</span><span class="ro-r" id="roRed">None 0</span><span class="ro-u" id="roInactive">Inactive 0</span></div>
+        <p id="coverageNote">Loading station observations…</p>
+      </aside>
+      <div class="map-hint" role="status">Loading recorded observations…</div><div class="tip" id="tip" aria-label="Selected location details"></div>
+      <div class="map-credit">Map data: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a></div>
+    </section>
+    <!-- The bottom dock reserves its own space, so the map stays visible and interactive. -->
+    <section class="playback-dock" aria-label="Map playback">
+      <button class="timeline-toggle" id="timelineToggle" type="button" aria-label="Open playback" title="Open playback" aria-controls="timelineDialog" aria-expanded="false"><span class="sr-only" id="playbackSummary">Playback</span></button>
+      <section class="timeline-dialog" id="timelineDialog" aria-labelledby="timelineTitle" hidden>
+      <h2 class="sr-only" id="timelineTitle">Playback</h2>
+    <footer class="timeline">
+      <div class="tl-bar">
+        <div class="tl-left">
+          <span class="chip-live" id="dataStatus"><i></i>Loading data</span>
+          <label class="date-label"><span class="sr-only">Playback date in London</span><input id="playbackDate" type="date" aria-label="Playback date in London"></label>
+          <span class="tl-clock" id="clock">—</span><span class="tl-kicker">Historical playback</span><span class="tl-date" id="sourceLabel">London time</span>
+        </div>
+        <div class="tl-right">
+          <div class="tl-stats" aria-label="Station status totals"><span class="pill p-green">High <b id="cGreen">0</b></span><span class="pill p-amber">Limited <b id="cAmber">0</b></span><span class="pill p-red">Unavailable <b id="cRed">0</b></span><span class="pill p-grey">Inactive <b id="cLocked">0</b></span></div>
+          <button class="btn-play btn-secondary" id="latestSample" type="button">Latest record</button><button class="btn-play" id="playBtn" type="button">Play</button><button class="close-control" id="closeTimeline" type="button" aria-label="Collapse playback" title="Collapse playback">×</button>
+        </div>
+      </div>
+      <div aria-label="Full-day London timeline" aria-valuemax="0" aria-valuemin="0" aria-valuenow="0" class="tl-track" id="track" role="slider" tabindex="0"><div class="tl-rail"><div class="tl-fill" id="tlFill"></div></div><div class="tl-knob" id="tlKnob"><svg class="timeline-bike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="bike-wheel" cx="5.5" cy="17" r="3.6"/><circle class="bike-wheel" cx="18.5" cy="17" r="3.6"/><path d="M5.5 17 10 8h4.6l3.9 9M10 8 8.6 5.4h-2M13.6 8l-2.2 4.6h5.2"/><g class="bike-pedal"><path d="m10 14 3 2m-3 0 3-2"/></g></svg></div><div class="tl-ticks" id="tlTicks"></div></div>
+    </footer>
+      </section>
+    </section>
+  </div></div>
+  <script src="/vendor/leaflet.js" defer></script><script src="/assets/js/config.js" defer></script><script src="/assets/js/data-contract.js" defer></script><script src="/assets/js/data-service.js" defer></script><script src="/assets/js/timeline.js" defer></script><script src="/assets/js/site-navigation.js" defer></script><script src="/assets/js/place-search.js" defer></script><script src="/assets/js/app.js" defer></script><script src="/assets/js/map-controls.js" defer></script>
+</body>
+</html>

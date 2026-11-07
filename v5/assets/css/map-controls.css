@@ -1,0 +1,89 @@
+/* Map-only overrides: let the map use the space previously occupied by toolbars. */
+.map-page .stage { grid-template-rows: auto minmax(0, 1fr) auto; min-height: 0; }
+.map-page .stage-wrap { height: 100vh; height: 100dvh; }
+.map-shell { position: relative; }
+.map-fab { position: absolute; z-index: 600; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border: 1px solid #dbe3f0; border-radius: 14px; padding: 11px 17px; background: white; color: #17243a; font-size: 13px; font-weight: 700; box-shadow: 0 5px 24px #17243a1c; cursor: pointer; }
+.tools-toggle { top: 18px; left: 18px; }
+.tools-toggle[aria-expanded=true] { background: #2457d6; color: white; border-color: #2457d6; }
+.tools-toggle svg { width: 21px; height: 21px; flex-shrink: 0; }
+.map-tools { position: absolute; z-index: 650; top: 78px; left: 18px; width: min(355px, calc(100% - 36px)); max-height: calc(100% - 174px); overflow-y: auto; padding: 18px; background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; box-shadow: 0 12px 45px #17243a26; }
+.drawer-heading, .timeline-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.drawer-heading h2, .timeline-heading h2 { margin: 0; font-size: 18px; letter-spacing: -.4px; }
+.drawer-intro { margin: 4px 0 18px; font-size: 12px; color: #728197; }
+.close-control { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border: 0; border-radius: 10px; color: #617087; background: #f1f5f9; font-size: 24px; cursor: pointer; }
+.tool-disclosure { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 54px; padding: 12px 4px; border: 0; border-top: 1px solid #edf0f5; background: white; color: #17243a; text-align: left; font-size: 13px; font-weight: 650; cursor: pointer; }
+.tool-number { display: grid; place-items: center; width: 28px; height: 28px; flex-shrink: 0; background: #edf2ff; color: #2457d6; border-radius: 9px; font-size: 11px; }
+.tool-chevron { margin-left: auto; color: #728197; transition: transform .15s; }
+.tool-disclosure[aria-expanded=true] .tool-chevron { transform: rotate(180deg); }
+.tool-disclosure[aria-expanded=true] { color: #2457d6; }
+.tool-panel { padding: 8px 0 18px; }
+.map-tools .search-board { width: 100%; padding-left: 8px; }
+.map-tools .search-board input { padding: 9px 6px; font-size: 13px; }
+.map-tools .search-submit { padding: 8px 10px; }
+/* Results stay within the scrollable drawer instead of being clipped below it. */
+.map-tools .search-board { display: flex; flex-wrap: wrap; }
+.map-tools .place-results { position: static; flex-basis: 100%; max-height: 190px; margin-top: 6px; box-shadow: none; border: 0; border-top: 1px solid #edf0f5; border-radius: 0; }
+.map-tools .legend, .map-tools .safety-layer { position: static; width: 100%; max-height: none; margin: 0; padding: 8px 0 18px; border: 0; border-radius: 0; box-shadow: none; background: transparent; overflow: visible; }
+.map-tools .legend-content { padding: 0; }
+.map-tools .legend .lg-row { font-size: 12px; }
+.map-tools .legend .lg-note { font-size: 11px; }
+.map-tools .key-blue { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #2457d6; color: white; font-size: 10px; font-weight: 700; }
+.map-tools .mode-wrap, .map-tools .mode-switch { width: 100%; }
+.map-tools .mode-btn { flex: 1; padding: 10px 6px; }
+.map-tools .mode-cap { display: block; white-space: normal; line-height: 1.6; font-size: 11px; margin: 8px 0 0; }
+.map-tools .safety-layer p { font-size: 11px; line-height: 1.6; }
+.map-shell > .map-credit { position: absolute; bottom: 5px; right: 12px; z-index: 500; background: #ffffffdf; padding: 2px 6px; border-radius: 4px; font-size: 9px; }
+.map-hint { bottom: 12px; }
+/* The handle is always visible; the compact dock takes layout space instead of covering the map. */
+.playback-dock { position: relative; z-index: 600; min-width: 0; background: #fff; border-top: 1px solid #e2e8f0; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 12px #17243a0c; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.timeline-toggle { display: flex; align-items: center; justify-content: center; width: 120px; height: 28px; padding: 0; margin: 0 auto; border: 0; background: transparent; border-radius: 10px; cursor: pointer; touch-action: manipulation; }
+.timeline-toggle::before { content: ''; display: block; width: 60px; height: 5px; border-radius: 999px; background: #b8bdc4; transition: background .15s; }
+.timeline-toggle:hover::before, .timeline-toggle:focus-visible::before { background: #808791; }
+/* Use the full dock width and align controls with the rail using one shared inset. */
+.timeline-dialog { width: 100%; margin: 0; padding: 0; color: #17243a; }
+.timeline-dialog .timeline { border: 0; background: transparent; padding: 0 20px 7px; gap: 2px; }
+.timeline-dialog .tl-bar { flex-wrap: wrap; gap: 8px; }
+.timeline-dialog .tl-left { flex-wrap: wrap; gap: 10px; }
+.timeline-dialog .tl-right { margin-left: auto; gap: 7px; }
+.timeline-dialog .tl-kicker, .timeline-dialog .tl-date { display: none; }
+.timeline-dialog .tl-clock { font-size: 22px; }
+.timeline-dialog .btn-play { min-height: 32px; padding: 6px 13px; font-size: 12px; }
+.timeline-dialog .close-control { width: 30px; height: 30px; font-size: 21px; }
+.timeline-dialog #playbackDate { min-height: 32px; font-size: 12px; }
+.timeline-dialog .tl-track { margin: 3px 0 0; height: 47px; }
+.timeline-dialog .tl-rail { top: 20px; height: 5px; }
+.timeline-dialog .tl-ticks { top: 33px; font-size: 9px; }
+/* The group's bicycle rides along the scrubber, while the rest of the map stays still. */
+.timeline-dialog .tl-knob { top: -4px; width: 36px; height: 31px; margin-left: -18px; display: grid; place-items: center; border: 0; border-radius: 8px; background: white; color: #2457d6; box-shadow: none; pointer-events: none; }
+.timeline-bike { width: 32px; height: 30px; overflow: visible; }
+.bike-wheel { stroke-dasharray: 3 2; transform-box: fill-box; transform-origin: center; }
+.is-playing .bike-wheel, .is-playing .bike-pedal { animation: ride-wheel .65s linear infinite; }
+.bike-pedal { transform-box: fill-box; transform-origin: center; }
+.is-playing .tl-knob { transition: left .55s linear; }
+.is-playing .tl-fill { transition: width .55s linear; }
+@keyframes ride-wheel { to { transform: rotate(360deg); } }
+@media (max-width: 640px) {
+  .tools-toggle { top: 12px; left: 12px; padding: 10px 13px; }
+  .map-tools { top: 70px; left: 12px; width: calc(100% - 24px); max-height: calc(100% - 92px); }
+  .map-tools .search-board input { font-size: 16px; }
+  .map-readout { top: 12px; right: 12px; bottom: auto; left: auto; width: 164px; padding: 9px; }
+  .map-readout .ro-mode { max-width: 88px; font-size: 9px; }
+  .map-readout .ro-time { font-size: 17px; }
+  .map-readout #coverageNote { display: none; }
+  .map-readout .ro-split { gap: 3px; }
+  .map-readout .ro-split span { font-size: 8px; }
+  .timeline-toggle { height: 26px; }
+  .timeline-dialog .timeline { padding: 0 12px 6px; gap: 2px; }
+  .timeline-dialog .tl-bar { display: flex; flex-wrap: nowrap; gap: 5px; }
+  .timeline-dialog .tl-left { flex: 1; gap: 6px; }
+  .timeline-dialog .tl-right { gap: 5px; }
+  .timeline-dialog .chip-live, .timeline-dialog #latestSample { display: none; }
+  .timeline-dialog .tl-clock { margin: 0; font-size: 18px; }
+  .timeline-dialog #playbackDate { width: 120px; min-height: 32px; padding: 3px 2px; font-size: 11px; }
+  .timeline-dialog .btn-play { min-height: 32px; padding: 6px 12px; }
+  .timeline-dialog .tl-track { margin: 1px 12px 0; height: 45px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .is-playing .bike-wheel, .is-playing .bike-pedal { animation: none; }
+  .is-playing .tl-knob, .is-playing .tl-fill { transition: none; }
+}
