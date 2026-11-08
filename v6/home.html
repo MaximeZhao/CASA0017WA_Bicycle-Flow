@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2457d6">
+  <title>Home · Mind The Dock</title>
+  <link rel="icon" href="/assets/images/favicon-purple.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <script src="/assets/js/config.js" defer></script>
+  <script src="/assets/js/data-contract.js" defer></script>
+  <script src="/assets/js/data-service.js" defer></script>
+  <script src="/assets/js/timeline.js" defer></script>
+  <script src="/assets/js/site-navigation.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/account.css">
+  <script src="/assets/js/account-menu.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
+</head>
+<body class="public-page home-page">
+  <section class="welcome-screen" id="welcomeScreen" aria-labelledby="welcomeTitle">
+    <div class="welcome-inner">
+      <div class="welcome-brand"><span class="welcome-logo"><img src="/assets/images/team-logo.png" width="92" height="68" alt="404 cycle wheel logo"></span><span>Mind The Dock</span></div>
+      <div class="welcome-grid">
+        <div class="welcome-copy">
+          <p class="welcome-eyebrow">Your London. Your next ride.</p>
+          <h1 id="welcomeTitle">A little less searching.<br><span>A little more cycling.</span></h1>
+          <p>Find a Santander Cycle, find a place to return it, and get to know the rhythm of London’s bike network.</p>
+          <div class="welcome-points"><span><i aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 15 15 5M5 5h10v10"/></svg></i> Find a bike or an empty dock</span><span><i aria-hidden="true">◷</i> Explore how availability changes</span></div>
+          <p class="welcome-project">Made for London’s everyday journeys.</p>
+        </div>
+        <section class="auth-card" aria-labelledby="authTitle">
+          <p class="eyebrow">Welcome to Mind The Dock</p>
+          <h2 id="authTitle">Ready for your next ride?</h2>
+          <p class="auth-intro" id="authIntro">Log in to your account, or explore as a guest.</p>
+          <div class="auth-tabs" role="group" aria-label="Choose log in or register">
+            <button type="button" id="loginTab" class="is-active" aria-pressed="true">Log in</button>
+            <button type="button" id="registerTab" aria-pressed="false">Register</button>
+          </div>
+          <form id="authForm" action="/api/auth/login" method="post" novalidate>
+            <div class="auth-field"><label for="authEmail">Email</label><input type="email" id="authEmail" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required aria-describedby="emailError"><span class="field-error" id="emailError"></span></div>
+            <div class="auth-field" id="usernameField" hidden><label for="authUsername">Username</label><input type="text" id="authUsername" name="username" autocomplete="nickname" placeholder="Choose a username" minlength="2" maxlength="40" disabled aria-describedby="usernameError"><span class="field-error" id="usernameError"></span></div>
+            <div class="auth-field"><label for="authPassword">Password</label><input type="password" id="authPassword" name="password" autocomplete="current-password" placeholder="At least 8 characters" minlength="8" maxlength="128" required aria-describedby="passwordError"><span class="field-error" id="passwordError"></span></div>
+            <div class="auth-field" id="confirmField" hidden><label for="authConfirm">Confirm password</label><input type="password" id="authConfirm" name="confirmPassword" autocomplete="new-password" placeholder="Confirm your password" minlength="8" maxlength="128" disabled aria-describedby="confirmError"><span class="field-error" id="confirmError"></span></div>
+            <p class="auth-status" id="authStatus" role="alert"></p>
+            <button class="auth-submit" id="authSubmit" type="submit">Log in <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="guest-divider"><span>or keep exploring</span></div>
+          <button type="button" class="guest-button" id="continueGuest">Continue as guest <span aria-hidden="true">→</span></button>
+          <p class="auth-note">All maps and daily insights are available to guests.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <div id="homeContent" hidden>
+    <header class="topbar">
+      <a class="brand" href="/home.html" data-page="home" aria-label="Mind The Dock home"><span class="brand-mark" aria-hidden="true"><img src="/assets/images/team-logo.png" width="42" height="42" alt=""></span><span class="brand-name">Mind The Dock</span></a>
+      <nav class="nav" aria-label="Main navigation"><a class="nav-link" data-page="home" href="/home.html">Home</a><a class="nav-link" data-page="map" href="/">Live Map</a><a class="nav-link" data-page="flow" href="/insights.html">Daily Flow</a><a class="nav-link" data-page="contact" href="/contact.html">Contact Us</a></nav>
+      <a class="account-link" href="/profile.html" data-page="profile" aria-label="Open your profile" aria-busy="true"><span class="account-avatar" data-account-avatar aria-hidden="true"><span>G</span></span><span class="account-greeting">Hi, <span data-account-name>Guest</span></span><svg class="account-chevron" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="m2 4 4 4 4-4Z"/></svg></a>
+    </header>
+    <main class="home-main" id="homeMain" tabindex="-1">
+      <div class="home-welcome"><span id="welcomeUser">Welcome to Mind The Dock</span><button type="button" id="accountAction" class="account-action">Log in / Register</button></div>
+      <section class="home-hero" aria-labelledby="homeTitle">
+        <div class="home-hero-copy"><p class="eyebrow">London, one ride at a time</p><h1 id="homeTitle">Find your bike.<br><span>Make your move.</span></h1><p>From the first mile to the last empty dock. Explore London’s cycle hire network and plan your next ride with a little more confidence.</p><a class="button-link" data-page="map" href="/">Open the live map <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15 15 5M5 5h10v10"/></svg></a><p class="home-data-note">Station availability, daily patterns and the people behind the project.</p></div>
+        <section class="briefing-card" aria-labelledby="briefingTitle">
+          <div class="briefing-heading"><span class="briefing-icon" aria-hidden="true">☀</span><p class="eyebrow">Your daily check-in</p><time id="todayDate"></time></div>
+          <h2 id="briefingTitle">Today’s London bike brief</h2>
+          <div class="briefing-source"><span class="briefing-badge" id="briefingBadge">Loading observations</span><span id="briefingTime"></span></div>
+          <div class="briefing-stats"><div><span>Available bikes</span><strong id="briefBikes">—</strong></div><div><span>Empty docks</span><strong id="briefDocks">—</strong></div><div><span>Stations reporting</span><strong id="briefStations">—</strong></div></div>
+          <p id="briefingNote" class="briefing-note" role="status">Checking the latest available network snapshot…</p>
+          <button class="briefing-retry" type="button" id="briefingRetry" hidden>Try again</button>
+          <a class="briefing-link" data-page="flow" href="/insights.html">See the day in detail <span aria-hidden="true">→</span></a>
+        </section>
+      </section>
+      <section class="home-explore" aria-labelledby="exploreTitle"><div class="section-heading"><div><p class="eyebrow">Make yourself at home</p><h2 id="exploreTitle">Where would you like to go?</h2></div><p>Three ways to explore Mind The Dock.</p></div>
+        <div class="home-cards">
+          <a class="home-card" data-page="map" href="/"><span class="home-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Zm6-3v15m6-12v15"/></svg></span><span class="home-card-number">01 / LIVE MAP</span><h3>Your next stop, found.</h3><p>Search a station or neighbourhood. Check bikes to borrow and empty docks for your return.</p><span class="home-card-cta">Explore the map <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15 15 5M5 5h10v10"/></svg></span></a>
+          <a class="home-card" data-page="flow" href="/insights.html"><span class="home-card-icon flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16h16M7 14l4-5 4 3 5-6"/></svg></span><span class="home-card-number">02 / DAILY FLOW</span><h3>Get into London’s rhythm.</h3><p>Follow availability through the day. Compare bikes, docks and recorded station patterns.</p><span class="home-card-cta">Explore Daily Flow <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15 15 5M5 5h10v10"/></svg></span></a>
+          <a class="home-card" data-page="contact" href="/contact.html"><span class="home-card-icon team-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3m2-16a3 3 0 0 1 0 6m1 3a5 5 0 0 1 3 5v2"/></svg></span><span class="home-card-number">03 / OUR TEAM</span><h3>Meet the minds behind it.</h3><p>Five people, one shared interest in better cycling journeys. Get to know us and get in touch.</p><span class="home-card-cta">Meet our team <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 15 15 5M5 5h10v10"/></svg></span></a>
+        </div>
+      </section>
+    </main>
+    <footer class="home-footer"><span>Built with curiosity. Made for London.</span><span>TfL BikePoint · DfT STATS19 · © OpenStreetMap contributors</span></footer>
+  </div>
+  <noscript><p class="noscript-note">Enable JavaScript to use the login form, or <a href="/">continue to the map</a>.</p></noscript>
+</body>
+</html>
